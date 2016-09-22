@@ -19,31 +19,29 @@ $('#editard').click(function () {
     }, 800);
 }); */
 
-function moveScroll(pos) {
-	var scroll = $('#as').scrollLeft();
-    console.log(scroll);
+// diferencia 362
 
-    switch (pos){
-    	case 1:
-			$('#as').scrollLeft(scroll-400);
-			break;
+// 6 paneles 2169
+// 5 paneles 1807
 
-		case 2:
-			$('#as').scrollLeft(190+scroll);
-			break;
+// 4 paneles 1445	
+// 3 paneles 1082
 
-		case 3:
-			$('#as').scrollLeft(380+scroll);
-			break;
-	}
-}
+// 2 paneles 720
 
 
 function moveScroll2() {
 	var scroll = $('#as').scrollLeft();
+	
+
+	var elem = $("#as");
+	var anchoPantalla = elem[0].scrollWidth
+	var maxScrollTop = elem[0].scrollWidth - elem.outerWidth();
     
 
-    console.log(scroll)
+    $('#as').scrollLeft(scroll+55*(elem.outerWidth()/100))
+
+    console.log()
 }
 
     
