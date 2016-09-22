@@ -39,7 +39,7 @@ function moveScroll2() {
 	var maxScrollTop = elem[0].scrollWidth - elem.outerWidth();
     
 
-    $('#as').scrollLeft(scroll+55*(elem.outerWidth()/100))
+    $('#as').scrollLeft(scroll+52*(elem.outerWidth()/100))
 
     console.log()
 }
