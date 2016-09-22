@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <title>Greendoor</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">  
+
+  </head>
+
+  <body>
+    
+    <div class="container-fluid" style="width:100%;padding:0px;">
+       
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+            
+            <div class="caption" style="text-align:center;">
+              <h3></h3>
+
+            </div>
+            
+            
+        </div>
+        
+        <div class="col-md-4 col-xs-12 col-sm-12" style="background:#212121; min-height:100%;height:100%;overflow-x:hidden;">
+        
+        
+        	<div class="row" style="border-bottom: 1px solid white;"onclick="cerrarBarras()">
+
+            
+            <div class="caption" style="text-align:center;">
+              <h2 style="color:#FFF">Mi Cultivo</h2>
+
+		        </div>
+        
+        
+          </div>
+
+          <div class="row" style="border-bottom: 1px solid white; height:80%;" onclick="cerrarBarras()">    
+            
+              <div class="row" style="text-align:center; height:23%;">
+
+                <a class="Temperatura" href="temperatura.html">
+
+
+
+                    <div class="col-md-9 col-xs-9 col-sm-9">
+                      <div class="row" style="height:60%">
+                        
+                        <label id="humedad" style="height: 100%; font-size: 6vh;">30°</label>
+                      </div>  
+                      <div class="row" style="height:50%;vertical-align: bottom;">
+                        <img  src="assets/images/title-04.png" style="height:inherit;  max-width:100%; margin-bottom:0.5em;"> 
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                    
+                    <div class="col-md-3   col-xs-3 col-sm-3">
+                      <!--<span style="background-image:url(assets/images/plant-01-01.png)"></span>-->
+
+                      <img  src="assets/images/temperature.png" style="height:inherit"> 
+                    </div>
+                    </div>
+                  
+                </a>
+              </div>
+              <!--468e00-->
+              <div class="row" style="text-align:center; height:23%;">
+                
+
+                
+                  <a class="humedad" href="humedad.html">
+
+                      <div class="col-md-5 col-xs-5 col-sm-5">
+
+                        <img  src="assets/images/humedad.png" style="height:90%;margin:auto;  "> 
+
+                      </div>
+                      
+
+                      <div class="col-md-7 col-xs-7 col-sm-7">
+
+                        <div class="row" style="height:50%">
+
+                          <label id="humedad" style="height: 100%; font-size: 6vh;">30%</label>
+                          
+                        </div>
+
+                        <div class="row" style="height:50%">
+                          <img  src="assets/images/title-05.png" style="height:inherit;margin-bottom:5px;">
+                        </div>
+
+                          
+                     </div> 
+                     
+                  </a>
+                
+              </div>
+
+              <div class="row" style="text-align:center; height:23%;">
+                
+                <a class="riego" href="riego.html">
+                  <div class="col-md-4 col-xs-4 col-sm-4" style="width:30%;margin-top:0.3em">
+
+                    <div class="row" style="height:70%">
+                      <img  src="assets/images/riego.png" style="height:90%;">                   
+                    
+                      
+                    </div>  
+                    
+                    <div class="row" style="height:25%">
+                      <img  src="assets/images/title-06.png" style="height:95%">
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-xs-2 col-sm-2" style="text-align:right;">
+                  </div>
+
+                  <div class="col-md-6 col-xs-6 col-sm-6" style="text-align:right;">
+
+                      <div style="height:5%"></div>
+                      <div style="height:95%">
+
+                        <div class="row" style="height:30%;margin: 0.2em 0.5em 0em 0.5em;">
+
+                          <label id="humedad" style="height: 100%; font-size: 2.2vh; vertical-align: super;">30 ml</label>
+
+                          <img   src="assets/images/balde-1.png" style="height:100%">
+
+                        </div>
+
+                        <div class="row" style="height:30%;margin: 0.2em 0.5em 0em 0.5em;">
+                          <label id="humedad" style="height: 100%; font-size: 2.2vh; vertical-align: super;">30 ml</label>
+                          <img  src="assets/images/balde-2.png" style="height:100%;">
+                        </div>
+
+                        <div class="row" style="height:30%;margin: 0.2em 0.5em 0em 0.5em;">
+                        <label id="humedad" style="height: 100%; font-size: 2.2vh; vertical-align: super;">30 ml</label> 
+                          <img  src="assets/images/balde-3.png" style="height:100%;">
+                        </div>
+                      </div> 
+                      
+                  </div>
+                    
+                    
+                </a>
+              </div>
+
+              <div class="row" style="text-align:center; height:23%;">
+                
+
+                
+                  <a class="per_vegetativo" href="perVegetativo.html">
+
+                      <div class="col-md-3 col-xs-3 col-sm-3">
+
+                        <img  src="assets/images/per_vegetativo.png" style="height:90%;margin:auto;  "> 
+
+                      </div>
+
+                      <div class="col-md-2 col-xs-2 col-sm-2"></div>
+                      
+
+                      <div class="col-md-7 col-xs-7 col-sm-7">
+
+                        <div class="row" style="height:25%">
+                          
+                        </div>
+
+                        <div class="row" style="height:75%">
+                          <img  src="assets/images/title-07.png" style="height:inherit;margin-bottom:5px;">
+                        </div>
+
+                          
+                     </div> 
+                     
+                  </a>
+                
+              </div> 
+        
+        
+          </div>
+
+          
+          <div class="row" style="background:#212121;min-height:10%;max-height:15%">
+
+
+          
+            <div class="col-sm-1 hidden-md hidden-xs hidden-lg"></div>
+
+            <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
+              
+                <button type="button" class="btn btn-default btn-lg" onclick="abrirNotificaciones()" style="width:100%;">
+                  <img  src="assets/images/notification.png" style="vertical-align:middle;height:5vh""> 
+                  <!--<span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center; vertical-align:middle"></span>-->
+
+                  
+                </button>
+
+            </div> 
+
+            <div class="col-sm-2 hidden-md hidden-xs hidden-lg"></div>
+
+             <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
+              
+
+              <button type="button" class="btn btn-default btn-lg" onclick="goHome()" style="width:100%;">
+                <img  src="assets/images/home.png" style="vertical-align:middle;height:5vh"">
+                  
+              </button>
+              
+              
+            </div>        
+
+            
+            <div class="col-sm-2 hidden-md hidden-xs hidden-lg"></div>
+
+            <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
+              
+
+              
+              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()" style="width:100%">
+                  <img  src="assets/images/help.png" style="vertical-align:middle;height:5vh"">
+              </button>
+              
+              
+            </div>    
+
+
+            <div id="mySidenav" class="sidenav">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <img  src="assets/images/help.png" style="vertical-align:middle;height:3em"">
+                    <label>Ayuda</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí se presenta la información de ayuda.</li>
+
+                    <li>La información que se presente va a depender del lugar, de la interfaz desde dónde se accedió al menú de 
+                        ayuda, por ejemplo si nos encontramos en "Inicio" se desplegará la información sobre lo que aparece en pantalla y sugerencias de acción.</li>
+                    
+                    <li>Los tópicos de ayuda se Isitarán verticalmente en esta barra lateral con la opción de deslizarse por 
+                        el contenido.</li>
+                  </ul> 
+                </div>
+
+                <div id="mySidenav2" class="sidenav2">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    
+                    <label>Notificaciones</label>
+                    <img  src="assets/images/notification.png" style="vertical-align:middle;height:3em"> 
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí van las notificaciones</li>
+                  </ul> 
+                </div>       
+            
+        
+          </div>
+        </div>
+
+        
+        
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+
+          
+        </div>
+        
+        
+	  </div>
+       
+
+    <!-- End Marketing -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <script src="assets/js/primary_buttons.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <title>Greendoor</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+    
+    <div class="container-fluid" style="width:100%;padding:0px;">
+       
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+            
+            <div class="caption" style="text-align:center;">
+              <h3></h3>
+
+            </div>
+            
+            
+        </div>
+        
+        <div class="col-md-4 col-xs-12 col-sm-12" style="background:#212121; height:100%;">
+        
+        
+        	<div class="row" style="border-bottom: 1px solid white;"onclick="cerrarBarras()">
+
+            
+            <div class="caption" style="text-align:center;">
+              <h2 style="color:#FFF">Período</h2>
+
+		        </div>
+        
+        
+          </div>
+
+          <div class="row" style="border-bottom: 1px solid white; height:80%;" onclick="cerrarBarras()">    
+            
+              
+              
+
+              <div class="row" style="height:23%;text-align:center;">
+                
+                <div class="col-sm-4 col-md-4 col-xs-4" style="text-align:center;margin-left:7%;height:100%;width:28%">
+                  <a class="per_veg_actual" style="text-align:center;"">
+                    <div class="row" style="height:15%;"></div>
+                    <div class="row" style="height: 30%;">
+                      <img  src="assets/images/actual.png" style="width:60%">
+                    </div>
+
+                    <div class="row" style="height: 30%;">
+
+                    <label id="internal_temp" style="height: 100%;  font-size: 3vh;">30 / 45</label>
+                    </div>
+                    
+                    <div class="row" style="height: 20%;">
+                      <img  src="assets/images/vegetativo.png" style="width:60%">
+
+                    </div>
+
+
+                  </a>
+                  
+                </div>
+                
+                <div class="col-sm-4 col-md-4 col-xs-4" style="height:100%;width:28%">
+                  <a class="per_veg_anterior">
+
+                    <div class="row" style="height:50%">
+                      <img  src="assets/images/back.png" style="height:60%;float:left;margin-left:2em;margin-top:1em">                  
+                      
+                    </div>
+
+                    <div class="row" style="height: 10%;"></div>
+
+                    <div class="row" style="height: 50%;">
+
+                        <img  src="assets/images/retrocederDia.png" style="height:50%">
+                        
+                    </div>
+                   
+                  </a>
+                </div>
+                
+                <div class="col-sm-4 col-md-4 col-xs-4" style="height:100%;width:30%">
+                  <a class="per_veg_siguiente">
+
+                    <div class="row" style="height:50%">
+                      <img  src="assets/images/forward.png" style="height:60%;float:right;margin-right:2em;margin-top:1em">                  
+                      
+                    </div>
+
+                    <div class="row" style="height: 10%;"></div>
+
+                    <div class="row" style="height: 50%;">
+
+                        <img  src="assets/images/adelantarDia.png" style="height:50%">
+                        
+                    </div>
+                    
+                  </a>
+                </div>
+
+
+              </div>
+
+             
+            
+
+             
+              <div class="row" style="text-align:center; height:23%;">
+                
+
+                
+                  <a class="per_veg_anterior" style="padding:1em;width:80%;">                     
+                          
+                    <!--<img  src="assets/images/historial_min_max.png" style="height:15%;width:90%">-->
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <div class="row" style="height:50%;margin-bottom:1em;">
+                        <img  src="assets/images/planta.png" style="height:100%; float:left; ">
+                      </div>
+                      <div class="row" style="height:50%">
+                        <img  src="assets/images/periodoAnteriorPlantula.png" style="height:100%; float:left;">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <div class="row" style="height:50%">
+
+                        
+                        <label id="internal_temp" style="height: 100%; font-size: 3vh; float:right">30 días</label>
+
+                        
+                      </div>
+
+                      <div class="row" style="height:50%">
+
+                        <div class="col-sm-3 col-md-3 col-xs-3"></div>
+
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+
+
+                          <label id="internal_temp" style="height: 100%; font-size: 1.5vh; float:right">09:00 hrs</label>
+                          <label id="internal_temp" style="height: 100%; font-size: 1.5vh; float:right">18:00 hrs</label>
+                          
+                        </div>
+
+                        <div class="col-sm-2 col-md-2 col-xs-2">
+                          <img  src="assets/images/ampolleta.png" style="height:100%; float:right; margin-top">
+                        </div>
+
+                      </div>
+                      
+                    </div>
+
+                     
+                     
+                  </a>
+                
+              </div> 
+
+              <div class="row" style="text-align:center; height:23%;">
+                
+
+                
+                  <a class="per_veg_actual" style="padding:1em;width:80%;">  
+
+                     <div class="col-md-6 col-xs-6 col-sm-6">
+                      <div class="row" style="height:50%;margin-bottom:1em;">
+                        <img  src="assets/images/vegetal.png" style="height:100%; float:left; ">
+                      </div>
+                      <div class="row" style="height:50%">
+                        <img  src="assets/images/periodoActualVegetativo.png" style="height:100%; float:left;">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <div class="row" style="height:50%">
+
+                        
+                        <label id="internal_temp" style="height: 100%; font-size: 3vh; float:right">30 días</label>
+
+                        
+                      </div>
+
+                      <div class="row" style="height:50%">
+
+                        <div class="col-sm-3 col-md-3 col-xs-3"></div>
+
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+
+
+                          <label id="internal_temp" style="height: 100%; font-size: 1.5vh; float:right">09:00 hrs</label>
+                          <label id="internal_temp" style="height: 100%; font-size: 1.5vh; float:right">18:00 hrs</label>
+                          
+                        </div>
+
+                        <div class="col-sm-2 col-md-2 col-xs-2">
+                          <img  src="assets/images/ampolleta.png" style="height:100%; float:right; margin-top">
+                        </div>
+
+                      </div>
+                      
+                    </div>
+
+                          
+                                          
+                     
+                     
+                  </a>
+                
+              </div> 
+              
+              <div class="row" style="text-align:center; height:23%;">
+                
+
+                
+                  <a class="per_veg_siguiente" style="padding:1em;width:80%;">                     
+
+
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <div class="row" style="height:50%;margin-bottom:1em;">
+                        <img  src="assets/images/flor.png" style="height:100%; float:left; ">
+                      </div>
+                      <div class="row" style="height:50%">
+                        <img  src="assets/images/periodoSiguienteFloracion.png" style="height:100%; float:left;">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <div class="row" style="height:50%">
+
+                        
+                        <label id="internal_temp" style="height: 100%; font-size: 3vh; float:right">30 días</label>
+
+                        
+                      </div>
+
+                      <div class="row" style="height:50%">
+
+                        <div class="col-sm-3 col-md-3 col-xs-3"></div>
+
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+
+
+                          <label id="internal_temp" style="height: 100%; font-size: 1.5vh; float:right">09:00 hrs</label>
+                          <label id="internal_temp" style="height: 100%; font-size: 1.5vh; float:right">18:00 hrs</label>
+                          
+                        </div>
+
+                        <div class="col-sm-2 col-md-2 col-xs-2">
+                          <img  src="assets/images/ampolleta.png" style="height:100%; float:right; margin-top">
+                        </div>
+
+                      </div>
+                      
+                    </div>
+                          
+                                           
+                     
+                     
+                  </a>
+                
+              </div>
+        
+          </div>
+
+          
+          <div class="row" style="width:auto;background:#212121">
+
+
+
+            <div class="col-md-4 col-xs-4 col-sm-4" style="height:100%;">
+              
+              <div class="caption" style="text-align:center; height:100%;">
+              
+                
+                <button type="button" class="btn btn-default btn-lg"onclick="abrirNotificaciones()" >
+                  <span class="glyphicon glyphicon-comment" style="color:#fff; text-align:center; height:100%"></span>
+                </button>
+
+              </div>
+
+
+            </div> 
+
+             <div class="col-md-4 col-xs-4 col-sm-4">
+              <div class="caption" style="text-align:center;">
+
+              <button type="button" class="btn btn-default btn-lg" href="index.html"  onclick="goHome()"  style="color:#fff;text-align:center;">
+                  <span class="glyphicon glyphicon-home"  style="color:#fff;text-align:center;"></span>
+              </button>
+              
+              </div>
+            </div>        
+            
+
+            <div class="col-md-4 col-xs-4 col-sm-4">
+              <div class="caption"  style="color:#fff;text-align:center;">
+
+                <div id="mySidenav" class="sidenav">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <span class="glyphicon glyphicon-question-sign" style="color:#fff;text-align:center;"></span>
+                    <label>Ayuda</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí se presenta la información de ayuda.</li>
+
+                    <li>La información que se presente va a depender del lugar, de la interfaz desde dónde se accedió al menú de 
+                        ayuda, por ejemplo si nos encontramos en "Inicio" se desplegará la información sobre lo que aparece en pantalla y sugerencias de acción.</li>
+                    
+                    <li>Los tópicos de ayuda se Isitarán verticalmente en esta barra lateral con la opción de deslizarse por 
+                        el contenido.</li>
+                  </ul> 
+                </div>
+
+                <div id="mySidenav2" class="sidenav2">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center;"></span>
+                    <label>Notificaciones</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí van las notificaciones</li>
+                  </ul> 
+                </div>
+  
+              
+              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()">
+                  <span class="glyphicon glyphicon-question-sign"></span>
+              </button>
+
+              
+              </div>
+            </div>         
+            
+        
+          </div>
+        </div>
+
+        
+        
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+
+          
+        </div>
+        
+        
+	  </div>
+       
+
+    <!-- End Marketing -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <script src="assets/js/primary_buttons.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <title>Greendoor</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+    
+    <div class="container-fluid" style="width:100%;padding:0px;">
+       
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+            
+            <div class="caption" style="text-align:center;">
+              <h3></h3>
+
+            </div>
+            
+            
+        </div>
+        
+        <div class="col-md-4 col-xs-12 col-sm-12" style="background:#212121; height:100%;">
+        
+        
+        	<div class="row" style="border-bottom: 1px solid white;"onclick="cerrarBarras()">
+
+            
+            <div class="caption" style="text-align:center;">
+              <h2 style="color:#FFF">Temperatura</h2>
+
+		        </div>
+        
+        
+          </div>
+
+          <div class="row" style="border-bottom: 1px solid white; height:80%;" onclick="cerrarBarras()">    
+            
+              
+              
+
+              <div class="row" style="height:30%;text-align:center;">
+                
+                <div class="col-sm-5 col-md-5 col-xs-5" style="width:43%!important;text-align:center;margin-left:7%;height:100%;">
+                  <a class="internal_temp" >
+
+                      <div class="row" style="height:65%;margin-top:2em;">
+                    
+                        <label id="internal_temp" style="height: 100%; font-size: 6vh;">30°</label>
+                    
+                      </div>
+
+                      <div class="row" style=";margin-top:-2em;"">
+                    
+                        <img  src="assets/images/interna.png"  style="height:15%"> 
+                      </div>
+                  </a>
+                  
+                </div>
+                
+                <div class="col-sm-6 col-md-6 col-xs-6" style="width:43%;margin-right:7%;height:100%;">
+                  <a class="external_temp">
+                    <div class="row" style="height:65%;margin-top:2em;">
+                      <label id="external_temp" style="height: 100%; font-size: 6vh;">30°</label>
+                    </div>
+
+                    <div class="row" style=";margin-top:-2em;"">
+                      <img  src="assets/images/externa.png"  style="height:15%;">
+                    </div>
+                  </a>
+                </div>
+                
+
+
+              </div>
+
+              <div class="row" style="height:30%;text-align:center;">
+                
+                <div class="col-sm-5 col-md-5 col-xs-5" style="width:43%!important;text-align:center;margin-left:7%;height:100%;">
+                  <a class="reanudar" >
+
+                      <div class="row" style="height:20%;margin-top:0.5em;">
+                    
+                        <img  src="assets/images/sol.png" style="height:100%;float:left;margin-left:1.5em;"> 
+                    
+                      </div>
+
+                      <div class="row" style="height:40%">
+                        <div class="col-sm-1 col-xs-1 col-md-1"></div>
+                        <div class="col-sm-4 col-xs-4 col-md-4">
+                    
+                          <label id="minima" style="float: right;margin-left: 6em;  font-size: 5vh;">30°</label>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                          <img  src="assets/images/max.png" style="height:100%;margin-right: 1em;  vertical-align: bottom; margin-top:0.8em; float:left">  
+
+                        </div>
+                        <div class="col-sm-1 col-xs-1 col-md-1"></div>
+                        
+
+                      </div>
+
+
+                      <div class="row" style="height:30%">
+                        
+                        <div class="col-sm-1 col-xs-1 col-md-1"></div>
+
+                        <div class="col-sm-4 col-xs-4 col-md-4">
+                    
+                          <label id="minima" style="float: right;margin-left: 0.8em;  font-size: 3vh;">30°</label>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                          <img  src="assets/images/min.png" style="height:100%;margin-right: 1em;   margin-top:0.8em; float:left">  
+
+                        </div>  
+
+                      </div>
+                  </a>
+                  
+                </div>
+                
+                <div class="col-sm-6 col-md-6 col-xs-6" style="width:43%;margin-right:7%;height:100%;">
+                  
+                  <a class="modificar" >
+
+                      <div class="row" style="height:20%;margin-top:0.5em;">
+                    
+                        <img  src="assets/images/luna.png" style="height:100%;float:left;margin-left:1.5em;"> 
+                    
+                      </div>
+
+                      <div class="row" style="height:40%">
+                        <div class="col-sm-1 col-xs-1 col-md-1"></div>
+                        <div class="col-sm-4 col-xs-4 col-md-4">
+                    
+                          <label id="minima" style="float: right;margin-left: 6em;  font-size: 5vh;">30°</label>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                          <img  src="assets/images/max.png" style="height:100%;margin-right: 1em;  vertical-align: bottom; margin-top:0.8em; float:left">  
+
+                        </div>
+                        <div class="col-sm-1 col-xs-1 col-md-1"></div>
+                        
+
+                      </div>
+
+
+                      <div class="row" style="height:30%">
+                        
+                        <div class="col-sm-1 col-xs-1 col-md-1"></div>
+
+                        <div class="col-sm-4 col-xs-4 col-md-4">
+                    
+                          <label id="minima" style="float: right;margin-left: 0.8em;  font-size: 3vh;">30°</label>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                          <img  src="assets/images/min.png" style="height:100%;margin-right: 1em;   margin-top:0.8em; float:left">  
+
+                        </div>  
+
+                      </div>
+                  </a>
+                </div>
+                
+
+
+              </div>
+
+            
+
+             
+              <div class="row" style="text-align:center; height:30%;">
+                
+
+                
+                  <a class="historial_temp" style="padding:1em;">
+
+                     
+
+                      
+                      
+
+                      
+
+                     
+                          
+                    <img  src="assets/images/historial_min_max.png" style="height:15%;width:90%">
+                        
+
+                          
+                     
+                     
+                  </a>
+                
+              </div> 
+        
+        
+          </div>
+
+          
+          <div class="row" style="width:auto;background:#212121">
+
+
+
+            <div class="col-md-4 col-xs-4 col-sm-4" style="height:100%;">
+              
+              <div class="caption" style="text-align:center; height:100%;">
+              
+                
+                <button type="button" class="btn btn-default btn-lg"onclick="abrirNotificaciones()" >
+                  <span class="glyphicon glyphicon-comment" style="color:#fff; text-align:center; height:100%"></span>
+                </button>
+
+              </div>
+
+
+            </div> 
+
+             <div class="col-md-4 col-xs-4 col-sm-4">
+              <div class="caption" style="text-align:center;">
+
+              <button type="button" class="btn btn-default btn-lg" href="index.html"  onclick="goHome()"  style="color:#fff;text-align:center;">
+                  <span class="glyphicon glyphicon-home"  style="color:#fff;text-align:center;"></span>
+              </button>
+              
+              </div>
+            </div>        
+            
+
+            <div class="col-md-4 col-xs-4 col-sm-4">
+              <div class="caption"  style="color:#fff;text-align:center;">
+
+                <div id="mySidenav" class="sidenav">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <span class="glyphicon glyphicon-question-sign" style="color:#fff;text-align:center;"></span>
+                    <label>Ayuda</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí se presenta la información de ayuda.</li>
+
+                    <li>La información que se presente va a depender del lugar, de la interfaz desde dónde se accedió al menú de 
+                        ayuda, por ejemplo si nos encontramos en "Inicio" se desplegará la información sobre lo que aparece en pantalla y sugerencias de acción.</li>
+                    
+                    <li>Los tópicos de ayuda se Isitarán verticalmente en esta barra lateral con la opción de deslizarse por 
+                        el contenido.</li>
+                  </ul> 
+                </div>
+
+                <div id="mySidenav2" class="sidenav2">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center;"></span>
+                    <label>Notificaciones</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí van las notificaciones</li>
+                  </ul> 
+                </div>
+  
+              
+              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()">
+                  <span class="glyphicon glyphicon-question-sign"></span>
+              </button>
+
+              
+              </div>
+            </div>         
+            
+        
+          </div>
+        </div>
+
+        
+        
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+
+          
+        </div>
+        
+        
+	  </div>
+       
+
+    <!-- End Marketing -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <script src="assets/js/primary_buttons.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

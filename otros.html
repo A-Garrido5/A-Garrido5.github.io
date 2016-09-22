@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <title>Greendoor</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="assets/css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-toggle.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    
+    <div class="container-fluid" style="width:100%;padding:0px;">
+       
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+            
+            <div class="caption" style="text-align:center;">
+              <h3></h3>
+
+            </div>
+            
+            
+        </div>
+        
+        <div class="col-md-4 col-xs-12 col-sm-12" style="background:#212121; min-height:100%;height:100%;overflow-x:hidden;overflow-y:auto">
+        
+        
+        	<div class="row" style="border-bottom: 1px solid white;"onclick="cerrarBarras()">
+
+            
+            <div class="caption" style="text-align:center;">
+              <h2 style="color:#FFF">Otros</h2>
+
+		        </div>
+        
+        
+          </div>
+
+          <div class="row" style="border-bottom: 1px solid white; min-height:80%" onclick="cerrarBarras()"> 
+
+   
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/calibrar.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Calibrar sensores</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>
+
+                      
+              
+            </div>
+
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/alarm.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Hora y Fecha</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>
+
+                      
+              
+            </div> 
+
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/restaurar.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Restauración de fábrica</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>
+
+                      
+              
+            </div> 
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/usb.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Puertos USB</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>
+
+                      
+              
+            </div>
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/control.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-8 col-sm-8 col-xs-8" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Control Manual Activadores</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>
+
+                      
+              
+            </div> 
+
+
+            <div class="row " style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/cloud.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-8 col-sm-8 col-xs-8" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Control Auto. Clima</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="margin-top:0.5em;">
+                
+                
+                  <input checked data-toggle="toggle" data-style="ios" type="checkbox" style="float:right">
+
+                
+              </div>
+
+                      
+              
+            </div> 
+
+
+            <div class="row " style=" width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/help.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-8 col-sm-8 col-xs-8" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Ayuda guiada</h5>
+
+              </div>
+              
+              <div class="col-md-4 col-sm-5 col-xs-3" style="margin-top:0.5em;">
+                
+                
+                  <input checked data-toggle="toggle" data-style="ios" type="checkbox" style="float:right">
+
+                
+              </div>
+
+                      
+              
+            </div>
+
+
+            <div class="row " style="background:#5A5959; width:100%;margin:auto;margin-right:1em;">
+              
+              
+
+              <div class="col-md-1 col-sm-1 col-xs-1"></div>          
+
+                <div class="col-md-8 col-sm-8 col-xs-8" style="width:80%">
+                    
+                  <h4 style="height: 100%;color:white">Configuración de Red</h4>
+                </div>
+                           
+            </div>
+
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/remote.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Uso Remoto</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>                     
+              
+            </div>
+
+
+            <div class="row e" style="border-bottom: 1px solid white; width:90%;margin:auto;margin-right:1em;">
+              
+              <div class="col-md-2 col-sm-1 col-xs-3">
+
+              
+                <img  src="assets/images/local.png" style="width:100%;margin-top:0.3em;">              
+              
+                
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:40%">
+                
+                <h5 id="internal_temp" style="height: 100%;color:white">Uso Local</h5>
+
+              </div>
+
+              <div class="col-md-4 col-sm-5 col-xs-3" style="width:10%;margin-top:0.5em;float:right">
+                
+                
+                  <span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
+                
+              </div>
+
+                       
+              
+            </div>
+
+
+              
+              
+
+
+          </div>
+
+          
+          <div class="row" style="background:#212121;height:10%">
+
+
+
+            <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;height:100%">
+              
+              
+              
+                
+                <button type="button" class="btn btn-default btn-lg" onclick="abrirNotificaciones()" style="width:100%;height:100%" >
+                  <span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center; vertical-align:middle"></span>
+
+                  
+                </button>
+
+
+
+
+            </div> 
+
+             <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;height:100%">
+              
+
+              <button type="button" class="btn btn-default btn-lg" onclick="goHome()" style="width:100%;height:100%" >
+                  <span class="glyphicon glyphicon-home"  style="color:#fff;text-align:center;vertical-align:middle;"></span>
+              </button>
+              
+              
+            </div>        
+            
+
+            <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;height:100%">
+              
+
+                <div id="mySidenav" class="sidenav">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <span class="glyphicon glyphicon-question-sign" style="color:#fff;text-align:center;"></span>
+                    <label>Ayuda</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí se presenta la información de ayuda.</li>
+
+                    <li>La información que se presente va a depender del lugar, de la interfaz desde dónde se accedió al menú de 
+                        ayuda, por ejemplo si nos encontramos en "Inicio" se desplegará la información sobre lo que aparece en pantalla y sugerencias de acción.</li>
+                    
+                    <li>Los tópicos de ayuda se Isitarán verticalmente en esta barra lateral con la opción de deslizarse por 
+                        el contenido.</li>
+                  </ul> 
+                </div>
+
+                <div id="mySidenav2" class="sidenav2">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center;"></span>
+                    <label>Notificaciones</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí van las notificaciones</li>
+                  </ul> 
+                </div>
+  
+              
+              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()" style="width:100%">
+                  <span class="glyphicon glyphicon-question-sign"></span>
+              </button>
+
+              
+              
+            </div>         
+            
+        
+          </div>
+        </div>
+
+        
+        
+        <div class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
+
+            
+            <div class="caption" style="text-align:center;">
+              <h3></h3>
+              <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+
+            </div>
+        </div>
+        
+        
+	  </div>
+       
+
+    <!-- End Marketing -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <script src="assets/js/primary_buttons.js"></script>
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-switch.js"></script>
+    <script src="assets/js/bootstrap-toggle.js"></script>
+    <script src="assets/js/bootbox.min.js"></script>
+
+  </body>
+</html>
