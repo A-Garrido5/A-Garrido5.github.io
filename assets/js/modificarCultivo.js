@@ -19,6 +19,43 @@ $('#editard').click(function () {
     }, 800);
 }); */
 
+
+var lastScrollLeft = 0;
+
+$('#as').scroll(function() {
+
+	var elem = $("#as");
+
+	var scroll = $('#as').scrollLeft();
+
+	console.log(scroll)
+
+	var anchoPantalla = elem[0].scrollWidth
+
+	console.log(anchoPantalla)
+
+	if(scroll < anchoPantalla/4){
+		$('#1').css("background","white");
+		$('#2').css("background","transparent");
+		$('#3').css("background","transparent");
+	}
+
+    else if (scroll >=anchoPantalla/4 && scroll < (anchoPantalla/4)*2 ){
+
+        $('#1').css("background","transparent");
+		$('#2').css("background","white");
+		$('#3').css("background","transparent");
+    }
+
+	else{
+
+		$('#1').css("background","transparent");
+		$('#2').css("background","transparent");
+		$('#3').css("background","white");
+
+	}    
+});
+
 // diferencia 360
 
 // 6 paneles 2159		
@@ -40,19 +77,32 @@ function moveScroll2(pos) {
 	switch (pos){
 		case 1:
 
+			$('#1').css("background","white");
+			$('#2').css("background","transparent");
+			$('#3').css("background","transparent");
+
 			$('#as').scrollLeft($('#panel1')[0].offsetLeft-(anchoPantalla/100));
+
 			break;
 
 		case 2:
+			$('#1').css("background","transparent");
+			$('#2').css("background","white");
+			$('#3').css("background","transparent");
 
 			$('#as').scrollLeft($('#panel2')[0].offsetLeft-(anchoPantalla/100));
 			break;
 
 		case 3:
 
+			$('#1').css("background","transparent");
+			$('#2').css("background","transparent");
+			$('#3').css("background","white");
+
 			$('#as').scrollLeft($('#panel3')[0].offsetLeft-(anchoPantalla/100));
 			break;
 	}
+
 
 
 	
