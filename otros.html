@@ -201,10 +201,14 @@
 
               </div>
 
-              <div class="col-md-4 col-sm-5 col-xs-3" style="margin-top:0.5em;">
+              <div class="col-md-4 col-sm-5 col-xs-3" style="margin-top:0.5em;float:right">
                 
                 
-                  <input checked data-toggle="toggle" data-style="ios" type="checkbox" style="float:right">
+                  <!--<input checked data-toggle="toggle" data-style="ios" type="checkbox" style="float:right">-->
+                  <div class="switch">
+                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+                  </div>
 
                 
               </div>
@@ -318,44 +322,55 @@
           </div>
 
           
-          <div class="row" style="background:#212121;height:10%">
+          <div class="row" style="background:#212121;min-height:10%;max-height:15%">
 
 
+          
+            <div class="col-sm-1 hidden-md hidden-xs hidden-lg"></div>
 
-            <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;height:100%">
+            <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
               
-              
-              
-                
-                <button type="button" class="btn btn-default btn-lg" onclick="abrirNotificaciones()" style="width:100%;height:100%" >
-                  <span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center; vertical-align:middle"></span>
+                <button type="button" class="btn btn-default btn-lg" onclick="abrirNotificaciones()" style="width:100%;">
+                  <img  src="assets/images/notification.png" style="vertical-align:middle;height:5vh""> 
+                  <!--<span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center; vertical-align:middle"></span>-->
 
                   
                 </button>
 
-
-
-
             </div> 
 
-             <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;height:100%">
+            <div class="col-sm-2 hidden-md hidden-xs hidden-lg"></div>
+
+             <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
               
 
-              <button type="button" class="btn btn-default btn-lg" onclick="goHome()" style="width:100%;height:100%" >
-                  <span class="glyphicon glyphicon-home"  style="color:#fff;text-align:center;vertical-align:middle;"></span>
+              <button type="button" class="btn btn-default btn-lg" onclick="goHome()" style="width:100%;">
+                <img  src="assets/images/home.png" style="vertical-align:middle;height:5vh"">
+                  
               </button>
               
               
             </div>        
-            
 
-            <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;height:100%">
+            
+            <div class="col-sm-2 hidden-md hidden-xs hidden-lg"></div>
+
+            <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
               
 
-                <div id="mySidenav" class="sidenav">
+              
+              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()" style="width:100%">
+                  <img  src="assets/images/help.png" style="vertical-align:middle;height:5vh"">
+              </button>
+              
+              
+            </div>    
+
+
+            <div id="mySidenav" class="sidenav">
 
                   <div class="row" style="border-bottom: 1px solid white; text-align:center;">
-                    <span class="glyphicon glyphicon-question-sign" style="color:#fff;text-align:center;"></span>
+                    <img  src="assets/images/help.png" style="vertical-align:middle;height:3em"">
                     <label>Ayuda</label>
                   </div>
 
@@ -374,24 +389,16 @@
                 <div id="mySidenav2" class="sidenav2">
 
                   <div class="row" style="border-bottom: 1px solid white; text-align:center;">
-                    <span class="glyphicon glyphicon-comment" style="color:#fff;text-align:center;"></span>
+                    
                     <label>Notificaciones</label>
+                    <img  src="assets/images/notification.png" style="vertical-align:middle;height:3em"> 
                   </div>
 
                   <ul style="list-style-type:circle">
 
                     <li>Aquí van las notificaciones</li>
                   </ul> 
-                </div>
-  
-              
-              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()" style="width:100%">
-                  <span class="glyphicon glyphicon-question-sign"></span>
-              </button>
-
-              
-              
-            </div>         
+                </div>       
             
         
           </div>
