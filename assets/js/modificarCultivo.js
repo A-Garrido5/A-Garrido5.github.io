@@ -1,10 +1,42 @@
 $(document).on("click", "#editar", function(e) {
 
+	var $elem = $('#editar');
+
+    // we use a pseudo object for the animation
+    // (starts from `0` to `angle`), you can name it as you want
+    $({deg: 0}).animate({deg: 45}, {
+        duration: 50,
+        step: function(now) {
+            // in the step-callback (that is fired each step of the animation),
+            // you can use the `now` paramter which contains the current
+            // animation-position (`0` up to `angle`)
+            $elem.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    });
+
 	document.getElementById('fade').style.display='block';
 	document.getElementById('light').style.display='block';
 });
 
 $(document).on("click", "#fade", function(e) {
+
+	var $elem = $('#editar');
+
+    // we use a pseudo object for the animation
+    // (starts from `0` to `angle`), you can name it as you want
+    $({deg: 0}).animate({deg: -90}, {
+        duration: 50,
+        step: function(now) {
+            // in the step-callback (that is fired each step of the animation),
+            // you can use the `now` paramter which contains the current
+            // animation-position (`0` up to `angle`)
+            $elem.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    });
 
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
