@@ -1,3 +1,6 @@
+
+
+/*
 $(document).on("click", "#send", function(e) {
             bootbox.dialog({
   
@@ -11,3 +14,20 @@ $(document).on("click", "#send", function(e) {
 }
 });
         });
+*/
+
+$(document).on("click", "#send", function(e) {
+
+	   console.log(e)
+
+	document.getElementById('fade').style.display='block';
+	document.getElementById('light').style.display='block';
+});
+
+$(document).on("click", "#fade", function(e) {
+
+	
+
+	document.getElementById('fade').style.display='none';
+	document.getElementById('light').style.display='none';
+});

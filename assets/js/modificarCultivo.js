@@ -1,17 +1,52 @@
-$(document).on("click", "#editar", function(e) {
+$(document).on("click", "#edit", function(e) {
 
-	var $elem = $('#editar');
+	var $elem = $('#edit');
 
+	document.getElementById('fade').style.display='block';
+	//document.getElementById('light').style.display='block';
+
+	$('#edit').css("z-index","1002");
+	$('#lista').css("z-index","1002");
+	$('#selectProgram').css("z-index","1002");
+
+	if(document.getElementById('edit').style.transform!='rotate(45deg)'){
     
-    $({deg: 0}).animate({deg: 45}, {
-        duration: 50,
+	    $({deg: 0}).animate({deg: 45}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $elem.css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
+	}
+
+	else{
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
         step: function(now) {
             
             $elem.css({
                 transform: 'rotate(' + now + 'deg)'
             });
         }
-    });
+    	});
+
+    	document.getElementById('fade').style.display='none';
+
+
+
+	}
+
+});
+
+
+
+$(document).on("click", "#editar", function(e) {
+
+	
 
 	document.getElementById('fade').style.display='block';
 	document.getElementById('light').style.display='block';
@@ -19,10 +54,12 @@ $(document).on("click", "#editar", function(e) {
 
 $(document).on("click", "#fade", function(e) {
 
-	var $elem = $('#editar');
+	var $elem = $('#edit');
 
-    $({deg: 0}).animate({deg: -90}, {
-        duration: 50,
+	if(document.getElementById('edit').style.transform='rotate(45deg)'){
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
         step: function(now) {
             
             $elem.css({
@@ -30,6 +67,12 @@ $(document).on("click", "#fade", function(e) {
             });
         }
     });
+		
+	}
+
+
+
+    
 
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
