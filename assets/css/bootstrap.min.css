@@ -2169,10 +2169,8 @@ input[type=checkbox] {
 .overlay{
      display: none;
      position: absolute;
-     top: 0;
-     left: 0;
      width: 100%;
-     height: 100%;
+     height: 80%;
      background: #000;
      z-index:1001;
      opacity:.75;
@@ -2184,7 +2182,7 @@ input[type=checkbox] {
      display: none;
      position: absolute;
      top: 25%;
-     left: 25%;
+	 left: 25%;
      width: 50%;
      height: 50%;
      padding: 16px;

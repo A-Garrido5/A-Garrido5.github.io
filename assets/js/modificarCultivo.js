@@ -35,6 +35,7 @@ $(document).on("click", "#edit", function(e) {
     	});
 
     	document.getElementById('fade').style.display='none';
+    	document.getElementById('light').style.display='none'
 
 
 
@@ -44,9 +45,19 @@ $(document).on("click", "#edit", function(e) {
 
 
 
-$(document).on("click", "#editar", function(e) {
 
-	
+
+$(document).on("click", "#edita", function(e) {
+
+	var coordinates = document.getElementById('edita').getBoundingClientRect()
+
+	console.log(coordinates)
+
+
+	$("#light").css({top: coordinates.y, left: coordinates.x, position:'absolute'});
+
+	$("#set").css({width: coordinates.width, height: coordinates.height, position:'absolute'});
+
 
 	document.getElementById('fade').style.display='block';
 	document.getElementById('light').style.display='block';
@@ -69,9 +80,6 @@ $(document).on("click", "#fade", function(e) {
     });
 		
 	}
-
-
-
     
 
 	document.getElementById('fade').style.display='none';
@@ -99,7 +107,7 @@ $('#as').scroll(function() {
     else if (scroll >=anchoPantalla/4 && scroll < (anchoPantalla/4)*2 ){
 
         $('#1').css("background","transparent");
-		$('#2').css("background","white");
+		$('#2').css("background","white");30,697917938
 		$('#3').css("background","transparent");
     }
 
@@ -158,4 +166,3 @@ function moveScroll2(pos) {
 }
 
     
-
