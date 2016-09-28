@@ -2190,6 +2190,7 @@ input[type=checkbox] {
      color: #333;
      z-index:1002;
      overflow: auto;
+     width: -moz-fit-content;
 }
 
 input.cmn-toggle-round-flat + label {

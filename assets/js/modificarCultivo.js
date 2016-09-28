@@ -1,5 +1,8 @@
 $(document).on("click", "#edit", function(e) {
 
+	document.getElementById('fade').style.display='none';
+    document.getElementById('light').style.display='none'
+
 	var $elem = $('#edit');
 
 	document.getElementById('fade').style.display='block';
@@ -51,12 +54,13 @@ $(document).on("click", "#edita", function(e) {
 
 	var coordinates = document.getElementById('edita').getBoundingClientRect()
 
-	console.log(coordinates)
+	console.log(e)
 
 
-	$("#light").css({top: coordinates.y, left: coordinates.x, position:'absolute'});
-
-	$("#set").css({width: coordinates.width, height: coordinates.height, position:'absolute'});
+	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
+	//$("#edita").css("z-index", 1003)
+	$('#edita').css("z-index","1003");
+	//$("#set").css({width: coordinates.width, height: coordinates.height, position:'absolute'});
 
 
 	document.getElementById('fade').style.display='block';
