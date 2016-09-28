@@ -104,6 +104,7 @@ $(document).on("click", "#edita", function(e) {
 $(document).on("click", "#fade", function(e) {
 
 	var $elem = $('#edit');
+	var e = $('#edita');
 
 	if(document.getElementById('edit').style.transform='rotate(45deg)'){
 
@@ -114,11 +115,24 @@ $(document).on("click", "#fade", function(e) {
             $elem.css({
                 transform: 'rotate(' + now + 'deg)'
             });
-        }
-    });
+        	}
+    	});
 		
 	}
     
+    if(document.getElementById('edita').style.transform='rotate(45deg)'){
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
+        step: function(now) {
+            
+            e.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        	}
+    	});
+		
+	}
 
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
