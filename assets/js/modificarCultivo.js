@@ -101,10 +101,66 @@ $(document).on("click", "#edita", function(e) {
 
 });
 
+
+
+$(document).on("click", "#ed", function(e) {
+
+	var coordinates = document.getElementById('ed').getBoundingClientRect()
+
+	var $elem = $('#ed');
+
+	console.log(coordinates)
+
+
+	$("#light2").css({bottom: coordinates.bottom,top:'50%'	, left: coordinates.left, position:'absolute'});
+	
+	$('#ed').css("z-index","1002");
+	
+	if(document.getElementById('ed').style.transform!='rotate(-45deg)'){
+    
+	    $({deg: 0}).animate({deg: -45}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $elem.css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
+
+	    document.getElementById('fade').style.display='block';
+    	document.getElementById('light2').style.display='block';
+
+
+	}
+
+	else{
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
+        step: function(now) {
+            
+            $elem.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    	});
+
+    	document.getElementById('fade').style.display='none';
+    	document.getElementById('light2').style.display='none'
+
+
+
+	}
+
+
+});
+
 $(document).on("click", "#fade", function(e) {
 
 	var $elem = $('#edit');
 	var e = $('#edita');
+	var ed = $('#ed');
 
 	if(document.getElementById('edit').style.transform='rotate(45deg)'){
 
@@ -134,8 +190,24 @@ $(document).on("click", "#fade", function(e) {
 		
 	}
 
+	if(document.getElementById('ed').style.transform='rotate(45deg)'){
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
+        step: function(now) {
+            
+            ed.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        	}
+    	});
+		
+	}
+
+
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
+	document.getElementById('light2').style.display='none';
 });
 
 
