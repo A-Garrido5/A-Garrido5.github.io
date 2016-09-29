@@ -105,6 +105,65 @@ $(document).on("click", "#edita", function(e) {
 
 
 
+$(document).on("click", "#set", function(e) {
+
+	console.log()
+	
+	//$('#set').parent().parent().css("left", document.getElementById('panel1').getBoundingClientRect().left );
+	$('#as').scrollLeft($('#set').parent().position().left - 40);
+	var coordinates = document.getElementById('set').getBoundingClientRect()
+
+	var $elem = $('#set');
+
+
+	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
+	
+	$('#set').css("z-index","1003");
+	
+	if(document.getElementById('set').style.transform!='rotate(45deg)'){
+    
+	    $({deg: 0}).animate({deg: 45}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $elem.css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
+
+	    document.getElementById('fade').style.display='block';
+    	document.getElementById('light').style.display='block';
+
+
+	}
+
+	else{
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
+        step: function(now) {
+            
+            $elem.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    	});
+
+    	document.getElementById('fade').style.display='none';
+    	document.getElementById('light').style.display='none';
+    	$('#set').css("z-index","4");
+
+
+
+
+	}
+
+
+});
+
+
+
 $(document).on("click", "#ed", function(e) {
 
 	var coordinates = document.getElementById('ed').getBoundingClientRect()
@@ -163,6 +222,7 @@ $(document).on("click", "#fade", function(e) {
 	var $elem = $('#edit');
 	var e = $('#edita');
 	var ed = $('#ed');
+	var set = $('#set')
 
 	if(document.getElementById('edit').style.transform='rotate(45deg)'){
 
@@ -207,12 +267,27 @@ $(document).on("click", "#fade", function(e) {
 	}
 
 
+	if(document.getElementById('set').style.transform='rotate(45deg)'){
+
+		$({deg: 0}).animate({deg: 0}, {
+        duration: 200,
+        step: function(now) {
+            
+            set.css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        	}
+    	});
+		
+	}
+
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
 	document.getElementById('light2').style.display='none';
 
 	$('#edita').css("z-index","4");
 	$('#ed').css("z-index","4");
+	$('#set').css("z-index","4");
 });
 
 
@@ -236,7 +311,7 @@ $('#as').scroll(function() {
     else if (scroll >=anchoPantalla/4 && scroll < (anchoPantalla/4)*2 ){
 
         $('#1').css("background","transparent");
-		$('#2').css("background","white");30,697917938
+		$('#2').css("background","white");
 		$('#3').css("background","transparent");
     }
 
