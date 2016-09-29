@@ -314,7 +314,7 @@ $('#as').scroll(function() {
 		$('#3').css("background","transparent");
 	}
 
-    else if (scroll >=anchoPantalla/4 && scroll < (anchoPantalla/4)*2 ){
+    else if (scroll >=anchoPantalla/4 && scroll <= (anchoPantalla/4)*1.9 ){
 
         $('#1').css("background","transparent");
 		$('#2').css("background","white");
