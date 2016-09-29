@@ -105,7 +105,7 @@ $(document).on("click", "#edita", function(e) {
 
 
 
-$(document).on("click", "#set", function(e) {
+$(document).on("click", ".boton", function(e) {
 
 	//console.log($(this).parent().parent().attr("id"))
 	
@@ -114,18 +114,20 @@ $(document).on("click", "#set", function(e) {
 	var scroll = $('#as').scrollLeft();
 
 	var anchoPantalla = elem[0].scrollWidth
+
+	console.log($(this))
 	
 	
 	$('#as').scrollLeft($('#'+$(this).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
 	
-	var coordinates = document.getElementById('set').getBoundingClientRect()
+	var coordinates = document.getElementById($(this).attr('id')).getBoundingClientRect()
 
-	var $elem = $('#set');
+	var $elem = $($(this).attr('id'));
 
 
 	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	
-	$('#set').css("z-index","1003");
+	$('#set').css("z-index","1002");
 	
 	if(document.getElementById('set').style.transform!='rotate(45deg)'){
     
@@ -380,18 +382,14 @@ function moveScroll2(pos) {
 $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left
-        	document.getElementById('fade').style.display='none';
-			document.getElementById('light').style.display='none';
-			document.getElementById('light2').style.display='none';
-        	break;
+
+        break;
 
         case 38: // up
         break;
 
         case 39: // right	
-        	document.getElementById('fade').style.display='none';
-			document.getElementById('light').style.display='none';
-			document.getElementById('light2').style.display='none';
+        
         break;
 
         case 40: // down
