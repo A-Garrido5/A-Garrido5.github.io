@@ -107,10 +107,16 @@ $(document).on("click", "#edita", function(e) {
 
 $(document).on("click", "#set", function(e) {
 
-	console.log()
 	
-	//$('#set').parent().parent().css("left", document.getElementById('panel1').getBoundingClientRect().left );
-	$('#as').scrollLeft($('#set').parent().position().left - 40);
+	var elem = $("#as");
+
+	var scroll = $('#as').scrollLeft();
+
+	var anchoPantalla = elem[0].scrollWidth
+	
+	//.css("left", document.getElementById('panel1').getBoundingClientRect().left );
+	$('#as').scrollLeft($('#'+$('#'+e.target.id).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
+	//$('#as').scrollLeft($('#set').parent().position().left - 42);
 	var coordinates = document.getElementById('set').getBoundingClientRect()
 
 	var $elem = $('#set');
