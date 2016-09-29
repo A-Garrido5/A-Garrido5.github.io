@@ -92,7 +92,7 @@ $(document).on("click", "#edita", function(e) {
     	});
 
     	document.getElementById('fade').style.display='none';
-    	document.getElementById('light').style.display='none'
+    	document.getElementById('light').style.display='none';
 
 
 
@@ -111,8 +111,8 @@ $(document).on("click", "#ed", function(e) {
 
 	console.log(coordinates)
 
-
-	$("#light2").css({bottom: coordinates.bottom,top:'50%'	, left: coordinates.left, position:'absolute'});
+	document.getElementById('light2').style.display='block';
+	$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	
 	$('#ed').css("z-index","1002");
 	
@@ -129,7 +129,7 @@ $(document).on("click", "#ed", function(e) {
 	    });
 
 	    document.getElementById('fade').style.display='block';
-    	document.getElementById('light2').style.display='block';
+    	
 
 
 	}
