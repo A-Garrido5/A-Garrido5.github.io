@@ -93,6 +93,8 @@ $(document).on("click", "#edita", function(e) {
 
     	document.getElementById('fade').style.display='none';
     	document.getElementById('light').style.display='none';
+    	$('#edita').css("z-index","4");
+
 
 
 
@@ -147,7 +149,8 @@ $(document).on("click", "#ed", function(e) {
     	});
 
     	document.getElementById('fade').style.display='none';    	
-
+    	document.getElementById('light2').style.display='none';
+    	$('#ed').css("z-index","4");
 
 
 	}
@@ -207,6 +210,9 @@ $(document).on("click", "#fade", function(e) {
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
 	document.getElementById('light2').style.display='none';
+
+	$('#edita').css("z-index","4");
+	$('#ed').css("z-index","4");
 });
 
 
