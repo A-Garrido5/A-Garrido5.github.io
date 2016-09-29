@@ -146,8 +146,7 @@ $(document).on("click", "#ed", function(e) {
         }
     	});
 
-    	document.getElementById('fade').style.display='none';
-    	document.getElementById('light2').style.display='none'
+    	document.getElementById('fade').style.display='none';    	
 
 
 
