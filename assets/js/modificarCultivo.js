@@ -107,6 +107,7 @@ $(document).on("click", "#edita", function(e) {
 
 $(document).on("click", "#set", function(e) {
 
+	//console.log($(this).parent().parent().attr("id"))
 	
 	var elem = $("#as");
 
@@ -114,9 +115,9 @@ $(document).on("click", "#set", function(e) {
 
 	var anchoPantalla = elem[0].scrollWidth
 	
-	//.css("left", document.getElementById('panel1').getBoundingClientRect().left );
-	$('#as').scrollLeft($('#'+$('#'+e.target.id).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
-	//$('#as').scrollLeft($('#set').parent().position().left - 42);
+	
+	$('#as').scrollLeft($('#'+$(this).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
+	
 	var coordinates = document.getElementById('set').getBoundingClientRect()
 
 	var $elem = $('#set');
@@ -314,7 +315,7 @@ $('#as').scroll(function() {
 		$('#3').css("background","transparent");
 	}
 
-    else if (scroll >=anchoPantalla/4 && scroll <= (anchoPantalla/4)*1.9 ){
+    else if (scroll >=anchoPantalla/4 && scroll <= (anchoPantalla/4)*1. ){
 
         $('#1').css("background","transparent");
 		$('#2').css("background","white");
