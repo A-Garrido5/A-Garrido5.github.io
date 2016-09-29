@@ -315,7 +315,7 @@ $('#as').scroll(function() {
 		$('#3').css("background","transparent");
 	}
 
-    else if (scroll >=anchoPantalla/4 && scroll <= (anchoPantalla/4)*1. ){
+    else if (scroll >=anchoPantalla/4 && scroll <= (anchoPantalla/4)*1.9 ){
 
         $('#1').css("background","transparent");
 		$('#2').css("background","white");
@@ -377,3 +377,27 @@ function moveScroll2(pos) {
 }
 
     
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        	document.getElementById('fade').style.display='none';
+			document.getElementById('light').style.display='none';
+			document.getElementById('light2').style.display='none';
+        	break;
+
+        case 38: // up
+        break;
+
+        case 39: // right	
+        	document.getElementById('fade').style.display='none';
+			document.getElementById('light').style.display='none';
+			document.getElementById('light2').style.display='none';
+        break;
+
+        case 40: // down
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
