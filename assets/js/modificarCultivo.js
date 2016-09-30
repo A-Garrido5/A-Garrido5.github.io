@@ -84,8 +84,6 @@ $(document).on("click", ".boton", function(e) {
 	document.getElementById('light2').style.display='none';
 	$elem.css("z-index","1002");
 
-	console.log($('#as')[0].getBoundingClientRect().height)
-	console.log(coordinates.top)
 	if($(this)[0].style.transform!='rotate(45deg)'){
     
 	    $({deg: 0}).animate({deg: 45}, {
