@@ -115,21 +115,21 @@ $(document).on("click", ".boton", function(e) {
 
 	var anchoPantalla = elem[0].scrollWidth
 
-	console.log($(this))
+	//console.log($(this))
 	
 	
 	$('#as').scrollLeft($('#'+$(this).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
 	
-	var coordinates = document.getElementById($(this).attr('id')).getBoundingClientRect()
+	var coordinates = $(this)[0].getBoundingClientRect()
 
-	var $elem = $($(this).attr('id'));
+	var $elem = $(this);
 
 
 	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	
-	$('#set').css("z-index","1002");
+	$elem.css("z-index","1002");
 	
-	if(document.getElementById('set').style.transform!='rotate(45deg)'){
+	if($(this)[0].style.transform!='rotate(45deg)'){
     
 	    $({deg: 0}).animate({deg: 45}, {
 	        duration: 200,
@@ -228,75 +228,38 @@ $(document).on("click", "#ed", function(e) {
 
 $(document).on("click", "#fade", function(e) {
 
-	var $elem = $('#edit');
-	var e = $('#edita');
-	var ed = $('#ed');
-	var set = $('#set')
 
-	if(document.getElementById('edit').style.transform='rotate(45deg)'){
+ 	//console.log($('.boton'))
+	
+ 	$('.boton').css("z-index","4")
 
-		$({deg: 0}).animate({deg: 0}, {
-        duration: 200,
-        step: function(now) {
-            
-            $elem.css({
-                transform: 'rotate(' + now + 'deg)'
-            });
-        	}
-    	});
-		
-	}
+ 	var current_pull = parseInt($('.boton').css('transform').split(',')[5]);
+
+	//console.log(current_pull)
+
+	if(current_pull!='rotate(45deg)'){
     
-    if(document.getElementById('edita').style.transform='rotate(45deg)'){
+	    $({deg: 0}).animate({deg: 0}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $('.boton').css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
 
-		$({deg: 0}).animate({deg: 0}, {
-        duration: 200,
-        step: function(now) {
-            
-            e.css({
-                transform: 'rotate(' + now + 'deg)'
-            });
-        	}
-    	});
-		
-	}
-
-	if(document.getElementById('ed').style.transform='rotate(45deg)'){
-
-		$({deg: 0}).animate({deg: 0}, {
-        duration: 200,
-        step: function(now) {
-            
-            ed.css({
-                transform: 'rotate(' + now + 'deg)'
-            });
-        	}
-    	});
-		
-	}
+	    document.getElementById('fade').style.display='block';
+    	document.getElementById('light').style.display='block';
 
 
-	if(document.getElementById('set').style.transform='rotate(45deg)'){
-
-		$({deg: 0}).animate({deg: 0}, {
-        duration: 200,
-        step: function(now) {
-            
-            set.css({
-                transform: 'rotate(' + now + 'deg)'
-            });
-        	}
-    	});
-		
 	}
 
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
 	document.getElementById('light2').style.display='none';
 
-	$('#edita').css("z-index","4");
-	$('#ed').css("z-index","4");
-	$('#set').css("z-index","4");
+
 });
 
 
