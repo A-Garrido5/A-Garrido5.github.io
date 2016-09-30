@@ -1,23 +1,15 @@
 $(document).on("click", ".edit", function(e) {
 
-	//console.log($(this).parent().parent().attr("id"))
-	
+
 	var coordinates = $(this)[0].getBoundingClientRect()
 
-	//var $elem = $($(this).attr('id'));
 	var $elem = $(this);
 	document.getElementById('light3').style.display='block';
-	console.log($("#light3")[0].getBoundingClientRect().width)
-	console.log(coordinates.left)
-
-
-
 	
-	
-	//$('#set').css("z-index","1002");
+
 	$(this).css("z-index","1002");
+	$('#selectProgram').css("z-index","1002");
 	
-	//if(document.getElementById('set').style.transform!='rotate(45deg)'){
 	if($(this)[0].style.transform!='rotate(45deg)'){
     
 	    $({deg: 0}).animate({deg: 45}, {
@@ -34,7 +26,7 @@ $(document).on("click", ".edit", function(e) {
     	
 
     	$("#light3").css({top: coordinates.top, left: (coordinates.left - $("#light3")[0].getBoundingClientRect().width-document.getElementById("blackL").getBoundingClientRect().width)+coordinates.width, position:'absolute'});
-    	console.log($("#light3")[0].getBoundingClientRect())
+    
 	}
 
 	else{
@@ -53,6 +45,8 @@ $(document).on("click", ".edit", function(e) {
     	document.getElementById('light3').style.display='none';
     
     	$(this).css("z-index","4");
+    	$('#selectProgram').css("z-index","4");
+
 
 
 
@@ -73,7 +67,7 @@ $(document).on("click", ".boton", function(e) {
 
 	var anchoPantalla = elem[0].scrollWidth
 
-	//console.log($(this))
+	
 	
 	
 	$('#as').scrollLeft($('#'+$(this).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
@@ -82,9 +76,23 @@ $(document).on("click", ".boton", function(e) {
 
 	var $elem = $(this);
 
+	document.getElementById('light2').style.display='block';
+
+
+
+	console.log($("#light2")[0].getBoundingClientRect().height)
+
+	console.log($(this).parent().parent())
+
 
 	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	
+	//$("#light2").css({top: coordinates.top - $("#light2")[0].getBoundingClientRect().height, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
+	
+	//$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
+
+	$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
+	document.getElementById('light2').style.display='none';
 	$elem.css("z-index","1002");
 	
 	if($(this)[0].style.transform!='rotate(45deg)'){
@@ -100,8 +108,14 @@ $(document).on("click", ".boton", function(e) {
 	    });
 
 	    document.getElementById('fade').style.display='block';
-    	document.getElementById('light').style.display='block';
 
+	    if (coordinates.top < $('#as').height()/2) {
+    		document.getElementById('light').style.display='block';
+    	}
+
+    	else{
+    		document.getElementById('light2').style.display='block';	
+    	}
 
 	}
 
