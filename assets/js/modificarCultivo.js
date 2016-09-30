@@ -58,8 +58,6 @@ $(document).on("click", ".edit", function(e) {
 
 
 $(document).on("click", ".boton", function(e) {
-
-	//console.log($(this).parent().parent().attr("id"))
 	
 	var elem = $("#as");
 
@@ -67,7 +65,6 @@ $(document).on("click", ".boton", function(e) {
 
 	var anchoPantalla = elem[0].scrollWidth
 
-	
 	
 	
 	$('#as').scrollLeft($('#'+$(this).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
@@ -80,21 +77,15 @@ $(document).on("click", ".boton", function(e) {
 
 
 
-	console.log($("#light2")[0].getBoundingClientRect().height)
-
-	console.log($(this).parent().parent())
-
-
 	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	
-	//$("#light2").css({top: coordinates.top - $("#light2")[0].getBoundingClientRect().height, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
-	
-	//$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 
 	$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	document.getElementById('light2').style.display='none';
 	$elem.css("z-index","1002");
-	
+
+	console.log($('#as')[0].getBoundingClientRect().height)
+	console.log(coordinates.top)
 	if($(this)[0].style.transform!='rotate(45deg)'){
     
 	    $({deg: 0}).animate({deg: 45}, {
@@ -109,7 +100,7 @@ $(document).on("click", ".boton", function(e) {
 
 	    document.getElementById('fade').style.display='block';
 
-	    if (coordinates.top < $('#as').height()/2) {
+	    if (coordinates.top < $(window).height()/2) {
     		document.getElementById('light').style.display='block';
     	}
 
@@ -133,7 +124,7 @@ $(document).on("click", ".boton", function(e) {
 
     	document.getElementById('fade').style.display='none';
     	document.getElementById('light').style.display='none';
-    	$('#set').css("z-index","4");
+    	$elem.css("z-index","4");
 
 
 
@@ -147,16 +138,12 @@ $(document).on("click", ".boton", function(e) {
 
 $(document).on("click", "#fade", function(e) {
 
-
- 	//console.log($('.boton'))
 	
  	$('.boton').css("z-index","4")
 
  	var current_pull = parseInt($('.boton').css('transform').split(',')[5]);
 
  	var rotacion_edit = parseInt($('.edit').css('transform').split(',')[5]);
-
-	//console.log(current_pull)
 
 	if(current_pull!='rotate(45deg)'){
     
