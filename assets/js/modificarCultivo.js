@@ -1,67 +1,24 @@
-$(document).on("click", "#edit", function(e) {
+$(document).on("click", ".edit", function(e) {
 
-	document.getElementById('fade').style.display='none';
-    document.getElementById('light').style.display='none'
-
-	var $elem = $('#edit');
-
-	document.getElementById('fade').style.display='block';
-	//document.getElementById('light').style.display='block';
-
-	$('#edit').css("z-index","1002");
-	$('#lista').css("z-index","1002");
-	$('#selectProgram').css("z-index","1002");
-
-	if(document.getElementById('edit').style.transform!='rotate(45deg)'){
-    
-	    $({deg: 0}).animate({deg: 45}, {
-	        duration: 200,
-	        step: function(now) {
-	            
-	            $elem.css({
-	                transform: 'rotate(' + now + 'deg)'
-	            });
-	        }
-	    });
-	}
-
-	else{
-
-		$({deg: 0}).animate({deg: 0}, {
-        duration: 200,
-        step: function(now) {
-            
-            $elem.css({
-                transform: 'rotate(' + now + 'deg)'
-            });
-        }
-    	});
-
-    	document.getElementById('fade').style.display='none';
-    	document.getElementById('light').style.display='none'
-
-
-
-	}
-
-});
-
-
-
-
-
-$(document).on("click", "#edita", function(e) {
-
-	var coordinates = document.getElementById('edita').getBoundingClientRect()
-
-	var $elem = $('#edita');
-
-
-	$("#light").css({top: coordinates.top, left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
+	//console.log($(this).parent().parent().attr("id"))
 	
-	$('#edita').css("z-index","1003");
+	var coordinates = $(this)[0].getBoundingClientRect()
+
+	//var $elem = $($(this).attr('id'));
+	var $elem = $(this);
+	document.getElementById('light3').style.display='block';
+	console.log($("#light3")[0].getBoundingClientRect().width)
+	console.log(coordinates.left)
+
+
+
 	
-	if(document.getElementById('edita').style.transform!='rotate(45deg)'){
+	
+	//$('#set').css("z-index","1002");
+	$(this).css("z-index","1002");
+	
+	//if(document.getElementById('set').style.transform!='rotate(45deg)'){
+	if($(this)[0].style.transform!='rotate(45deg)'){
     
 	    $({deg: 0}).animate({deg: 45}, {
 	        duration: 200,
@@ -74,9 +31,10 @@ $(document).on("click", "#edita", function(e) {
 	    });
 
 	    document.getElementById('fade').style.display='block';
-    	document.getElementById('light').style.display='block';
+    	
 
-
+    	$("#light3").css({top: coordinates.top, left: (coordinates.left - $("#light3")[0].getBoundingClientRect().width-document.getElementById("blackL").getBoundingClientRect().width)+coordinates.width, position:'absolute'});
+    	console.log($("#light3")[0].getBoundingClientRect())
 	}
 
 	else{
@@ -92,8 +50,9 @@ $(document).on("click", "#edita", function(e) {
     	});
 
     	document.getElementById('fade').style.display='none';
-    	document.getElementById('light').style.display='none';
-    	$('#edita').css("z-index","4");
+    	document.getElementById('light3').style.display='none';
+    
+    	$(this).css("z-index","4");
 
 
 
@@ -102,7 +61,6 @@ $(document).on("click", "#edita", function(e) {
 
 
 });
-
 
 
 $(document).on("click", ".boton", function(e) {
@@ -173,59 +131,6 @@ $(document).on("click", ".boton", function(e) {
 
 
 
-$(document).on("click", "#ed", function(e) {
-
-	var coordinates = document.getElementById('ed').getBoundingClientRect()
-
-	var $elem = $('#ed');
-
-	console.log(coordinates)
-
-	document.getElementById('light2').style.display='block';
-	$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
-	
-	$('#ed').css("z-index","1002");
-	
-	if(document.getElementById('ed').style.transform!='rotate(-45deg)'){
-    
-	    $({deg: 0}).animate({deg: -45}, {
-	        duration: 200,
-	        step: function(now) {
-	            
-	            $elem.css({
-	                transform: 'rotate(' + now + 'deg)'
-	            });
-	        }
-	    });
-
-	    document.getElementById('fade').style.display='block';
-    	
-
-
-	}
-
-	else{
-
-		$({deg: 0}).animate({deg: 0}, {
-        duration: 200,
-        step: function(now) {
-            
-            $elem.css({
-                transform: 'rotate(' + now + 'deg)'
-            });
-        }
-    	});
-
-    	document.getElementById('fade').style.display='none';    	
-    	document.getElementById('light2').style.display='none';
-    	$('#ed').css("z-index","4");
-
-
-	}
-
-
-});
-
 $(document).on("click", "#fade", function(e) {
 
 
@@ -234,6 +139,8 @@ $(document).on("click", "#fade", function(e) {
  	$('.boton').css("z-index","4")
 
  	var current_pull = parseInt($('.boton').css('transform').split(',')[5]);
+
+ 	var rotacion_edit = parseInt($('.edit').css('transform').split(',')[5]);
 
 	//console.log(current_pull)
 
@@ -249,15 +156,27 @@ $(document).on("click", "#fade", function(e) {
 	        }
 	    });
 
-	    document.getElementById('fade').style.display='block';
-    	document.getElementById('light').style.display='block';
-
 
 	}
 
+	if(rotacion_edit!='rotate(45deg)'){
+    
+	    $({deg: 0}).animate({deg: 0}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $('.edit').css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
+
+
+	}
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
 	document.getElementById('light2').style.display='none';
+	document.getElementById('light3').style.display='none';
 
 
 });
