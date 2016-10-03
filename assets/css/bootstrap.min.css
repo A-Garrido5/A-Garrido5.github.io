@@ -165,6 +165,69 @@ textarea{
  	.container{width:970px}
  }
 
+
+
+
+
+ /*                        Tamaño de Labels                      */
+
+@media (max-width:320px){
+	.letra{
+		font-size: 1em;
+	}
+
+} 
+
+@media (min-width:321px) and (max-width: 360px){
+	.letra{
+		font-size: 1.2em;
+	}
+
+} 
+
+@media (min-width:361px) and (max-width: 765px){
+	.letra{
+		font-size: 2.2em;
+	}
+
+} 
+
+@media (min-width:766px) and (max-width: 800px){
+	.letra{
+		font-size: 2em;
+	}
+
+} 
+
+@media (min-width:801px) and (max-width: 980px){
+	.letra{
+		font-size: 2.5em;
+	}
+
+} 
+
+@media (min-width:981px) and (max-width: 1280px){
+	.letra{
+		font-size: 1.3em;
+	}
+
+}
+
+@media (min-width:1281px) and (max-width: 1919px){
+	.letra{
+		font-size: 1.3em;
+	}
+
+} 
+
+@media (min-width:1920px){
+	.letra{
+		font-size: 2.5em;
+	}
+
+} 
+
+}
  @media (min-width:1200px){
   	.container{
  		width:1170px
