@@ -289,9 +289,9 @@ $(document).keydown(function(e) {
 
 (function ($) {
   $('#mas').on('click', function() {
-    $('#valor').val( parseInt($('#valor').val(), 10) + 1);
+    $('#valor').html( parseInt($('#valor').html(), 10) + 1);
   });
   $('#menos').on('click', function() {
-    $('#valor').val( parseInt($('#valor').val(), 10) - 1);
+    $('#valor').html( parseInt($('#valor').html(), 10) - 1);
   });
 })(jQuery);
