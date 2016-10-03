@@ -83,6 +83,7 @@ $(document).on("click", ".boton", function(e) {
 	$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	document.getElementById('light2').style.display='none';
 	$elem.css("z-index","1002");
+	$(this).parent().css("z-index","1002");
 
 	if($(this)[0].style.transform!='rotate(45deg)'){
     
@@ -123,6 +124,7 @@ $(document).on("click", ".boton", function(e) {
     	document.getElementById('fade').style.display='none';
     	document.getElementById('light').style.display='none';
     	$elem.css("z-index","4");
+    	$(this).parent().css("z-index","4");
 
 
 
@@ -138,6 +140,8 @@ $(document).on("click", "#fade", function(e) {
 
 	
  	$('.boton').css("z-index","4")
+ 	$(".row").css("z-index","4")
+ 	
 
  	var current_pull = parseInt($('.boton').css('transform').split(',')[5]);
 
