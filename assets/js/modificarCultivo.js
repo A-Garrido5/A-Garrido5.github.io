@@ -56,7 +56,7 @@ $(document).on("click", ".edit", function(e) {
 
 });
 
-
+document.getElementById('set_period').style.display='block'
 $(document).on("click", ".boton", function(e) {
 	
 	var elem = $("#as");
@@ -284,3 +284,14 @@ $(document).keydown(function(e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
+
+
+
+(function ($) {
+  $('#mas').on('click', function() {
+    $('#valor').val( parseInt($('#valor').val(), 10) + 1);
+  });
+  $('#menos').on('click', function() {
+    $('#valor').val( parseInt($('#valor').val(), 10) - 1);
+  });
+})(jQuery);
