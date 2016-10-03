@@ -55,8 +55,11 @@ $(document).on("click", ".edit", function(e) {
 
 
 });
+$(document).on("click", "#set", function(e) {
+	document.getElementById('set_period').style.display='block'
+	$('#set').css("z-index","1004");
+});
 
-document.getElementById('set_period').style.display='block'
 $(document).on("click", ".boton", function(e) {
 	
 	var elem = $("#as");
@@ -134,6 +137,50 @@ $(document).on("click", ".boton", function(e) {
 
 });
 
+$(document).on("click", "#cancel", function(e) {
+
+	document.getElementById('fade').style.display='none';
+	document.getElementById('light').style.display='none';
+	document.getElementById('light2').style.display='none';
+	document.getElementById('light3').style.display='none';
+	document.getElementById('set_period').style.display='none';
+
+	var current_pull = parseInt($('.boton').css('transform').split(',')[5]);
+
+ 	var rotacion_edit = parseInt($('.edit').css('transform').split(',')[5]);
+
+	if(current_pull!='rotate(45deg)'){
+    
+	    $({deg: 0}).animate({deg: 0}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $('.boton').css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
+
+
+	}
+
+	if(rotacion_edit!='rotate(45deg)'){
+    
+	    $({deg: 0}).animate({deg: 0}, {
+	        duration: 200,
+	        step: function(now) {
+	            
+	            $('.edit').css({
+	                transform: 'rotate(' + now + 'deg)'
+	            });
+	        }
+	    });
+
+
+	}
+
+});
+
 
 
 $(document).on("click", "#fade", function(e) {
@@ -180,7 +227,7 @@ $(document).on("click", "#fade", function(e) {
 	document.getElementById('light').style.display='none';
 	document.getElementById('light2').style.display='none';
 	document.getElementById('light3').style.display='none';
-
+	document.getElementById('set_period').style.display='none';
 
 });
 
