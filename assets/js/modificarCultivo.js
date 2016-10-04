@@ -397,3 +397,21 @@ $(document).keydown(function(e) {
   });
 })(jQuery);
 
+
+(function ($) {
+  $('.am').on('click', function(e) {
+
+  	var ampm = $(this).parent().parent().children("div").children(".ampm").html()
+  	 
+  
+  	if (ampm=='AM') {
+    	$(this).parent().parent().children("div").children('.ampm').html('PM');
+	}
+
+	else{
+		$(this).parent().parent().children("div").children('.ampm').html('AM');	
+	}
+  });
+})(jQuery);
+
+
