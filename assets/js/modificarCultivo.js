@@ -1,11 +1,7 @@
 var button_pressed;
 
 $(document).on("click", ".edit", function(e) {
-	$('.boton').css("z-index","4")
- 	$(".row").css("z-index","4")
-
-
-
+	
 	var coordinates = $(this)[0].getBoundingClientRect()
 
 	var $elem = $(this);
@@ -48,9 +44,7 @@ $(document).on("click", ".edit", function(e) {
 
     	document.getElementById('fade').style.display='none';
     	document.getElementById('light3').style.display='none';
-    
-    	$(this).css("z-index","4");
-    	$('#selectProgram').css("z-index","4");
+    	cancelar()
 
 
 
@@ -59,8 +53,31 @@ $(document).on("click", ".edit", function(e) {
 	}
 
 
+
 });
 
+$(document).on("click", ".ok", function(e) {
+
+	var clase_boton = button_pressed.parent().attr('class')
+
+	switch(clase_boton){
+		case 'row third':
+			
+			button_pressed.parent().find('label').html($('#valor').html() + ' Días')
+			break;	
+
+		case 'row fourth':
+			console.log() //
+
+			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('.boton_input.menos_hora').html() + ':' + $('#valor2').children('.boton_input.menos_hora').html())
+			//button_pressed.parent().find('label:eq(1)').html("mundo")
+			break;
+	}
+
+
+	cancelar()
+
+});
 
 $(document).on("click", ".button", function(e) {
 
@@ -84,7 +101,7 @@ $(document).on("click", ".button", function(e) {
 
 	switch(clase_boton){
 		case 'row third':
-			console.log("asdad")
+			
 			var urlAbsolute = "assets/images/clock.png";
 			$('#icon').attr("src", urlAbsolute)
 
@@ -290,8 +307,7 @@ $(document).on("click", ".boton", function(e) {
 });
 
 
-$(document).on("click", ".cancel", function(e) {
-
+function cancelar(){
 	$(".edit").css("z-index","4")
 	$("#selectProgram").css("z-index","4")
 
@@ -339,6 +355,12 @@ $(document).on("click", ".cancel", function(e) {
 
  	$('.boton').css("z-index","4")
  	$(".row").css("z-index","4")
+}
+
+
+$(document).on("click", ".cancel", function(e) {
+
+	cancelar();
 
 });
 
