@@ -1,6 +1,9 @@
 var button_pressed;
 
 $(document).on("click", ".edit", function(e) {
+	$('.boton').css("z-index","4")
+ 	$(".row").css("z-index","4")
+
 
 
 	var coordinates = $(this)[0].getBoundingClientRect()
@@ -63,8 +66,12 @@ $(document).on("click", ".button", function(e) {
 
 	$('.boton').css("z-index","4")
  	$(".row").css("z-index","4")
+ 	$(".edit").css("z-index","4")
 
 	var clase_boton = button_pressed.parent().attr('class')
+
+	$('#unidad_1').css('display','none')
+	$('#unidad_2').css('display','none')
 
 	$('#valor1').css("visibility",'visible')
 	$('#valor2').css("visibility",'visible')
@@ -109,6 +116,21 @@ $(document).on("click", ".button", function(e) {
 
             $('#valor1').css("visibility",'hidden')
             $('#valor3').css("visibility",'hidden')
+
+            var unidades = $('#valor3').children()[1]
+            
+            $('#unidad_1').css('display','block')
+            $('#unidad_1').css('position','relative')
+            $('#unidad_1').css('z-index','1005')
+            $('#unidad_1').html('° C')
+            $('#unidad_1').css("visibility",'visible')
+            
+            $('#unidad_2').css('display','block')
+            $('#unidad_2').css('position','relative')
+            $('#unidad_2').css('z-index','1005')
+            $('#unidad_2').html('° C')
+            $('#unidad_2').css("visibility",'visible')
+            
 			
 			$('#valor4').css("visibility",'hidden')
             $('#valor6').css("visibility",'hidden')
@@ -127,7 +149,19 @@ $(document).on("click", ".button", function(e) {
 
             $('#valor1').css("visibility",'hidden')
             $('#valor3').css("visibility",'hidden')
+
+            $('#unidad_1').css('display','block')
+            $('#unidad_1').css('position','relative')
+            $('#unidad_1').css('z-index','1005')
+            $('#unidad_1').html(' %')
+            $('#unidad_1').css("visibility",'visible')
 			
+			$('#unidad_2').css('display','block')
+            $('#unidad_2').css('position','relative')
+            $('#unidad_2').css('z-index','1005')
+            $('#unidad_2').html(' ml.')
+            $('#unidad_2').css("visibility",'visible')
+
 			$('#valor4').css("visibility",'hidden')
             $('#valor6').css("visibility",'hidden')
 
@@ -146,6 +180,19 @@ $(document).on("click", ".button", function(e) {
 
             $('#valor1').css("visibility",'hidden')
             $('#valor3').css("visibility",'hidden')
+
+
+            $('#unidad_1').css('display','block')
+            $('#unidad_1').css('position','relative')
+            $('#unidad_1').css('z-index','1005')
+            $('#unidad_1').html(' %')
+            $('#unidad_1').css("visibility",'visible')
+			
+			$('#unidad_2').css('display','block')
+            $('#unidad_2').css('position','relative')
+            $('#unidad_2').css('z-index','1005')
+            $('#unidad_2').html(' %')
+            $('#unidad_2').css("visibility",'visible')
 			
 			$('#valor4').css("visibility",'hidden')
             $('#valor6').css("visibility",'hidden')
@@ -160,6 +207,9 @@ $(document).on("click", ".button", function(e) {
 });
 
 $(document).on("click", ".boton", function(e) {
+
+	$(".edit").css("z-index","4")
+	$("#selectProgram").css("z-index","4")
 
 
 	button_pressed = $(this)
@@ -239,9 +289,11 @@ $(document).on("click", ".boton", function(e) {
 
 });
 
-//
 
 $(document).on("click", ".cancel", function(e) {
+
+	$(".edit").css("z-index","4")
+	$("#selectProgram").css("z-index","4")
 
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
@@ -294,7 +346,8 @@ $(document).on("click", ".cancel", function(e) {
 
 $(document).on("click", "#fade", function(e) {
 
-	
+	$(".edit").css("z-index","4")
+	$("#selectProgram").css("z-index","4")
  	$('.boton').css("z-index","4")
  	$(".row").css("z-index","4")
  	

@@ -5,6 +5,9 @@ notificaciones = document.getElementById("mySidenav2");
 
 function abrirAyuda() {
 
+    $('#mySidenav').css('z-index','5')
+
+
     if(ayuda.style.width== '' || ayuda.style.width == "0px"){
       
       if (notificaciones.style.width=="300px"){
@@ -23,6 +26,8 @@ function abrirAyuda() {
 }
 
 function abrirNotificaciones(){
+
+    $('#mySidenav2').css('z-index','5')
 
     if(notificaciones.style.width== '' || notificaciones.style.width == "0px"){
       
