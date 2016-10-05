@@ -1,3 +1,5 @@
+var button_pressed;
+
 $(document).on("click", ".edit", function(e) {
 
 
@@ -18,7 +20,7 @@ $(document).on("click", ".edit", function(e) {
 	            
 	            $elem.css({
 	                transform: 'rotate(' + now + 'deg)'
-	            });
+	            });	
 	        }
 	    });
 
@@ -55,14 +57,112 @@ $(document).on("click", ".edit", function(e) {
 
 
 });
-$(document).on("click", "#set", function(e) {
-	document.getElementById('set_period').style.display='block'
-	$('#set').css("z-index","1004");
+
+
+$(document).on("click", ".button", function(e) {
+
 	$('.boton').css("z-index","4")
  	$(".row").css("z-index","4")
+
+	var clase_boton = button_pressed.parent().attr('class')
+
+	$('#valor1').css("visibility",'visible')
+	$('#valor2').css("visibility",'visible')
+    $('#valor3').css("visibility",'visible')
+
+    $('#valor4').css("visibility",'visible')
+	$('#valor5').css("visibility",'visible')
+    $('#valor6').css("visibility",'visible')
+	
+
+	switch(clase_boton){
+		case 'row third':
+			console.log("asdad")
+			var urlAbsolute = "assets/images/clock.png";
+			$('#icon').attr("src", urlAbsolute)
+
+			document.getElementById('set_period').style.display='block'	
+			$('.boton').css("z-index","4")
+		 	$(".row").css("z-index","4")
+			break;
+
+		case 'row fourth':
+			document.getElementById('set_hor').style.display='block';
+			
+
+			$('#setting').html("Horario luz");
+			$('#set1').html("Encendido");
+			$('#set2').html("Apagado");
+			$('.boton').css("z-index","4");
+		 	$(".row").css("z-index","4");
+			break;
+
+		case 'row fifth':
+			
+			var urlAbsolute = 'assets/images/temperature.png';
+            $('#setting').html("Temperatura")
+
+            $('#icon').attr("src", urlAbsolute)
+
+            $('#set1').html("Máxima")
+            $('#set2').html("Minima")
+
+            $('#valor1').css("visibility",'hidden')
+            $('#valor3').css("visibility",'hidden')
+			
+			$('#valor4').css("visibility",'hidden')
+            $('#valor6').css("visibility",'hidden')
+
+			document.getElementById('set_hor').style.display='block';
+			break;
+
+		case 'row sixth':
+			var urlAbsolute = 'assets/images/riego.png';
+            $('#setting').html("Riego")
+
+            $('#icon').attr("src", urlAbsolute)
+
+            $('#set1').html("Porcentaje")
+            $('#set2').html("Riego Mínimo")
+
+            $('#valor1').css("visibility",'hidden')
+            $('#valor3').css("visibility",'hidden')
+			
+			$('#valor4').css("visibility",'hidden')
+            $('#valor6').css("visibility",'hidden')
+
+			document.getElementById('set_hor').style.display='block';
+			break;
+
+		case 'row seventh':
+
+			var urlAbsolute = 'assets/images/humedad.png';
+            $('#setting').html("Humedad")
+
+            $('#icon').attr("src", urlAbsolute)
+
+            $('#set1').html("Máxima")
+            $('#set2').html("Minima")
+
+            $('#valor1').css("visibility",'hidden')
+            $('#valor3').css("visibility",'hidden')
+			
+			$('#valor4').css("visibility",'hidden')
+            $('#valor6').css("visibility",'hidden')
+
+			document.getElementById('set_hor').style.display='block';
+			break;
+
+
+
+	}
+
 });
 
 $(document).on("click", ".boton", function(e) {
+
+
+	button_pressed = $(this)
 	
 	var elem = $("#as");
 
@@ -139,15 +239,16 @@ $(document).on("click", ".boton", function(e) {
 
 });
 
-document.getElementById('set_hor').style.display='block';
+//
 
-$(document).on("click", "#cancel", function(e) {
+$(document).on("click", ".cancel", function(e) {
 
 	document.getElementById('fade').style.display='none';
 	document.getElementById('light').style.display='none';
 	document.getElementById('light2').style.display='none';
 	document.getElementById('light3').style.display='none';
 	document.getElementById('set_period').style.display='none';
+	document.getElementById('set_hor').style.display='none';
 
 	var current_pull = parseInt($('.boton').css('transform').split(',')[5]);
 
@@ -236,6 +337,7 @@ $(document).on("click", "#fade", function(e) {
 	document.getElementById('light2').style.display='none';
 	document.getElementById('light3').style.display='none';
 	document.getElementById('set_period').style.display='none';
+	document.getElementById('set_hor').style.display='none';
 
 });
 
