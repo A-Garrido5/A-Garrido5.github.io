@@ -67,12 +67,26 @@ $(document).on("click", ".ok", function(e) {
 			break;	
 
 		case 'row fourth':
-			console.log() //
-
-			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('.boton_input.menos_hora').html() + ':' + $('#valor2').children('.boton_input.menos_hora').html())
-			//button_pressed.parent().find('label:eq(1)').html("mundo")
+		
+			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('div').children('.boton_input.hora').html() + ':' + $('#valor2').children('div').children('.boton_input.min').html() + ' hrs.')
+			button_pressed.parent().find('label:eq(1)').html($('#valor4').children('div').children('.boton_input.hora').html() + ':' + $('#valor5').children('div').children('.boton_input.min').html() + ' hrs.')
 			break;
-	}
+
+		case 'row fifth':
+			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '° C')
+			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + '° C')
+			break;
+		
+		case 'row sixth':
+			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '% Min.')
+			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + ' ml.')
+			break;
+		case 'row seventh':
+			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '% Máx.')
+			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + '% Min.')
+			break;
+	}	
+
 
 
 	cancelar()
@@ -111,8 +125,10 @@ $(document).on("click", ".button", function(e) {
 			break;
 
 		case 'row fourth':
+
+
 			document.getElementById('set_hor').style.display='block';
-			
+
 
 			$('#setting').html("Horario luz");
 			$('#set1').html("Encendido");
@@ -532,20 +548,33 @@ $(document).keydown(function(e) {
 (function ($) {
   $('.mas_hora').on('click', function(e) {
 
+  
   	var hora = $(this).parent().parent().children("div").children(".boton_input.hora").html()
 
   
-  	if (hora<12) {
-    	$(this).parent().parent().children("div").children('.boton_input.hora').html( parseInt(hora, 10) + 1);
-	}
+  	if (parseInt(hora,10)<12) {
+  		if(parseInt(hora,10) + 1<10 && parseInt(min,10) + 1>0){
+    		$(this).parent().parent().children("div").children('.boton_input.hora').html('0'+ (parseInt(hora, 10) + 1));
+    	}
+
+    	else{
+    		$(this).parent().parent().children("div").children('.boton_input.hora').html(parseInt(hora, 10) + 1);	
+    	}
+	}	
   });
 
   $('.menos_hora').on('click', function() {
 
   	var hora = $(this).parent().parent().children("div").children(".boton_input.hora").html()
 
-  	if (hora>1) {
-    	$(this).parent().parent().children("div").children('.boton_input.hora').html( parseInt(hora, 10) - 1);
+  	if (parseInt(hora,10)>1) {
+    	if(parseInt(hora,10) - 1<10 && parseInt(min,10) - 1>0){
+    		$(this).parent().parent().children("div").children('.boton_input.hora').html('0'+ (parseInt(hora, 10) - 1));
+    	}
+
+    	else{
+    		$(this).parent().parent().children("div").children('.boton_input.hora').html(parseInt(hora, 10) - 1);	
+    	}
     }
   });
 })(jQuery);
@@ -554,23 +583,95 @@ $(document).keydown(function(e) {
 
 
 (function ($) {
+
+
   $('.mas_min').on('click', function(e) {
 
   	var min = $(this).parent().parent().children("div").children(".boton_input.min").html()
 
+  	var clase_boton = button_pressed.parent().attr('class')
+  	
+  	switch (clase_boton){
+  		
+
+  		case 'row fourth':
+
+  			if (min<59) {
+		  		if(parseInt(min,10) + 1<10){
+		    		$(this).parent().parent().children("div").children('.boton_input.min').html('0'+ (parseInt(min, 10) + 1));
+				}
+
+				else{
+		    		$(this).parent().parent().children("div").children('.boton_input.min').html(parseInt(min, 10) + 1);	
+		    	}
+			}
+
+  			break;
+
+  		case 'row fifth':
+  			if(parseInt(min,10) + 1<10 && parseInt(min,10) + 1>0){
+		    	$(this).parent().parent().children("div").children('.boton_input.min').html('0'+ (parseInt(min, 10) + 1));
+			}
+
+			else{
+	    		$(this).parent().parent().children("div").children('.boton_input.min').html(parseInt(min, 10) + 1);	
+	    	}
+  			break;
+
+
+  	}
   
-  	if (min<59) {
-    	$(this).parent().parent().children("div").children('.boton_input.min').html( parseInt(min, 10) + 1);
-	}
+  	
   });
 
   $('.menos_min').on('click', function() {
 
   	var min = $(this).parent().parent().children("div").children(".boton_input.min").html()
 
-  	if (min>1) {
-    	$(this).parent().parent().children("div").children('.boton_input.min').html( parseInt(min, 10) - 1);
-    }
+  	var clase_boton = button_pressed.parent().attr('class')
+  	
+  	switch (clase_boton){
+  		
+
+  		case 'row fourth':
+
+  			if (min<59 && min >0) {
+		  		if(parseInt(min,10) - 1<10){
+		    		$(this).parent().parent().children("div").children('.boton_input.min').html('0'+ (parseInt(min, 10) - 1));
+				}
+
+				else{
+		    		$(this).parent().parent().children("div").children('.boton_input.min').html(parseInt(min, 10) - 1);	
+		    	}
+			}
+
+  			break;
+
+  		case 'row fifth':
+  			if(parseInt(min,10) - 1<10 && parseInt(min,10) - 1>0){
+		    	$(this).parent().parent().children("div").children('.boton_input.min').html('0'+ (parseInt(min, 10) - 1));
+			}
+
+			else{
+	    		$(this).parent().parent().children("div").children('.boton_input.min').html(parseInt(min, 10) - 1);	
+	    	}
+  			break;
+
+
+  		case 'row sixth':
+  			if(parseInt(min,10) - 1<10 && parseInt(min,10) - 1>0){
+		    	$(this).parent().parent().children("div").children('.boton_input.min').html('0'+ (parseInt(min, 10) - 1));
+			}
+
+			else{
+	    		$(this).parent().parent().children("div").children('.boton_input.min').html(parseInt(min, 10) - 1);	
+	    	}
+  			break;
+
+
+  	}
+
+  
   });
 })(jQuery);
 
