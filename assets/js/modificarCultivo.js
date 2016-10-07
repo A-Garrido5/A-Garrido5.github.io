@@ -1,5 +1,200 @@
 var button_pressed;
 
+function crearPanelVacio(){
+	var htmlDinamico="";	
+	htmlDinamico+='<a class= style="height:100%;width:49%;margin-right:1%;vertical-align:top;">';
+	htmlDinamico+='</a>';
+
+	
+	$( "#contenedor" ).append( htmlDinamico );
+
+}
+function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTemp,minTemp,riegoPor,riegoMin,humedadMax,humedadMin){
+
+	var htmlDinamico="";
+
+	htmlDinamico+='<a id="p'+ numero+'" class="'+clasePanel+'" style="height:100%;width:49%;margin-right:1%;vertical-align:top;">';
+	htmlDinamico+='	<div class="row first" style="height:10%;white-space:normal;position:relative;">';
+	htmlDinamico+='		<div class="col-md-10 col-sm-10 col-xs-10" style="height:100%;padding:0">';
+	
+	if(nombre=='germinacion')
+		htmlDinamico+='		<img id=p"'+numero+'ico1" src="assets/images/planta.png"  style="height:100%;position:relative;">'
+	
+	else if (nombre=='plantula')
+		htmlDinamico+='		<img id=p'+numero+'ico1" src="assets/images/vegetal.png"  style="height:100%;position:relative;">'
+
+	else if (nombre=='vegetativo')
+		htmlDinamico+='		<img id=p'+numero+'ico1" src="assets/images/flor.png"  style="height:100%;position:relative;">'
+	
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0;">'	
+	htmlDinamico+='			<button id="p'+numero+'1b1" class="boton btn" style="background:transparent;height:75%;position:relative;">';
+	htmlDinamico+='				<img src="assets/images/edit.png" alt="Responsive image" style="height:100%;">'
+	htmlDinamico+='			</button>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='	</div>';
+	
+	htmlDinamico+='	<div class="row second" style="height:10%;position:relative;margin-top:5%;">';
+	
+	if(nombre=='germinacion')
+		htmlDinamico+='	<label id="p'+numero+'1etapa" style="height: 100%; font-size: 3.5vh;">Germinación</label>';
+
+	else if (nombre=='plantula')
+		htmlDinamico+='	<label id="p'+numero+'1etapa" style="height: 100%; font-size: 3.5vh;">Plántula</label>';
+
+	else if (nombre=='vegetativo')
+		htmlDinamico+='	<label id="p'+numero+'1etapa" style="height: 100%; font-size: 3.5vh;">Vegetativo</label>';
+
+	htmlDinamico+='	</div>';
+
+	htmlDinamico+='	<div class="row third" style="height:15%;white-space: normal; position:relative;">';
+	
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
+	htmlDinamico+='			<img id="p'+numero+'ico2" src="assets/images/reloj.png"  style="height:50%; ">';
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;padding:0">'
+	htmlDinamico+='			<label id="p'+numero+'dias" style="font-size: 3vh;width: 100%; float:left">'+dias+' días</label>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0;">'	
+	htmlDinamico+='			<button id="p'+numero+'1b2" class="boton btn" style="background:transparent;height:50%;position:relative;">';
+	htmlDinamico+='				<img src="assets/images/edit.png" alt="Responsive image" style="height:100%;">'
+	htmlDinamico+='			</button>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='	</div>';
+
+	htmlDinamico+='	<div class="row fourth" style="height:15%;white-space: normal; position:relative;">'
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
+	htmlDinamico+='			<img id="p'+numero+'ico3" src="assets/images/ampolleta.png"  style="height:50%; ">';
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;padding:0;margin:0;">';
+	
+	htmlDinamico+='			<div class="row" style="height:30%;">';
+	htmlDinamico+='				<label id="p'+numero+'luz1" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+hora_inicio+'</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='			<div class="row" style="height:50%;">';
+	htmlDinamico+='				<label id="p'+numero+'luz2" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+hora_termino+'</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0;">'	
+	htmlDinamico+='			<button id="p'+numero+'1b3" class="boton btn" style="background:transparent;height:50%;position:relative;">';
+	htmlDinamico+='				<img src="assets/images/edit.png" alt="Responsive image" style="height:100%;">'
+	htmlDinamico+='			</button>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='	</div>';
+
+	htmlDinamico+='	<div class="row fifth" style="height:15%;white-space: normal; position:relative;">'
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
+	htmlDinamico+='			<img id="p'+numero+'ico4" src="assets/images/temperature.png"  style="height:50%; ">';
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;padding:0;margin:0;">';
+	
+	htmlDinamico+='			<div class="row" style="height:30%;">';
+	htmlDinamico+='				<label id="p'+numero+'t1" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+maxTemp+'° C Máx</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='			<div class="row" style="height:50%;">';
+	htmlDinamico+='				<label id="p'+numero+'t2" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+minTemp+'° C Min.</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0;">'	
+	htmlDinamico+='			<button id="p'+numero+'1b4" class="boton btn" style="background:transparent;height:50%;position:relative;">';
+	htmlDinamico+='				<img src="assets/images/edit.png" alt="Responsive image" style="height:100%;">'
+	htmlDinamico+='			</button>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='	</div>';
+
+	htmlDinamico+='	<div class="row sixth" style="height:15%;white-space: normal; position:relative;">'
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
+	htmlDinamico+='			<img id="p'+numero+'ico5" src="assets/images/riego.png"  style="height:50%; ">';
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;padding:0;margin:0;">';
+	
+	htmlDinamico+='			<div class="row" style="height:30%;">';
+	htmlDinamico+='				<label id="p'+numero+'r1" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+riegoPor+'% Min.</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='			<div class="row" style="height:50%;">';
+	htmlDinamico+='				<label id="p'+numero+'r2" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+riegoMin+' ml.</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0;">'	
+	htmlDinamico+='			<button id="p'+numero+'1b5" class="boton btn" style="background:transparent;height:50%;position:relative;">';
+	htmlDinamico+='				<img src="assets/images/edit.png" alt="Responsive image" style="height:100%;">'
+	htmlDinamico+='			</button>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='	</div>';
+
+	htmlDinamico+='	<div class="row seventh" style="height:15%;white-space: normal; position:relative;">'
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
+	htmlDinamico+='			<img id="p'+numero+'ico6" src="assets/images/humedad.png"  style="height:50%; ">';
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;padding:0;margin:0;">';
+	
+	htmlDinamico+='			<div class="row" style="height:30%;">';
+	htmlDinamico+='				<label id="p'+numero+'h1" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+humedadMax+'% Máx.</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='			<div class="row" style="height:50%;">';
+	htmlDinamico+='				<label id="p'+numero+'h2" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+humedadMin+'% Min.</label>';
+	htmlDinamico+='			</div>';
+
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0;">'	
+	htmlDinamico+='			<button id="p'+numero+'1b6" class="boton btn" style="background:transparent;height:50%;position:relative;">';
+	htmlDinamico+='				<img src="assets/images/edit.png" alt="Responsive image" style="height:100%;">'
+	htmlDinamico+='			</button>'
+	htmlDinamico+='		</div>';
+
+	htmlDinamico+='	</div>';
+
+
+	htmlDinamico+='</a>';
+
+	
+	$( "#contenedor" ).append( htmlDinamico );
+	
+
+}
+var total = 5
+
+for(var i=0; i<total;i++){
+	if(i%3==0)
+		crearPanel('1','panel1','germinacion',30,'08:00 AM','02:00 PM',28,22,10,100,10,50)
+	else if(i%3==1)
+		crearPanel('2','panel2','plantula',20,'09:00 AM','03:00 PM',20,33,20,90,15,45)
+	else
+		crearPanel('3','panel3','vegetativo',10,'10:00 AM','04:00 PM',18,12,30,80,20,43)
+
+}
+
+if (tota%2!=0) {
+	crearPanelVacio()
+}
+
 $(document).on("click", ".edit", function(e) {
 	
 	var coordinates = $(this)[0].getBoundingClientRect()
@@ -58,15 +253,17 @@ $(document).on("click", ".edit", function(e) {
 
 $(document).on("click", ".ok", function(e) {
 
-	var clase_boton = button_pressed.parent().attr('class')
+	var clase_boton = button_pressed.parent().parent().attr('class')
 
 	switch(clase_boton){
+
 		case 'row third':
-			
-			button_pressed.parent().find('label').html($('#valor').html() + ' Días')
+			button_pressed.parent().parent().children('div').children('label').html($('#valor').html() + ' Días')
 			break;	
 
 		case 'row fourth':
+
+
 		
 			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('div').children('.boton_input.hora').html() + ':' + $('#valor2').children('div').children('.boton_input.min').html() + ' '+ $('#valor3').children('div').children('.boton_input.ampm').html())
 			button_pressed.parent().find('label:eq(1)').html($('#valor4').children('div').children('.boton_input.hora').html() + ':' + $('#valor5').children('div').children('.boton_input.min').html() + ' '+$('#valor6').children('div').children('.boton_input.ampm').html())
@@ -81,6 +278,7 @@ $(document).on("click", ".ok", function(e) {
 			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '% Min.')
 			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + ' ml.')
 			break;
+
 		case 'row seventh':
 			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '% Máx.')
 			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + '% Min.')
@@ -99,7 +297,7 @@ $(document).on("click", ".button", function(e) {
  	$(".row").css("z-index","4")
  	$(".edit").css("z-index","4")
 
-	var clase_boton = button_pressed.parent().attr('class')
+	var clase_boton = button_pressed.parent().parent().attr('class')
 
 	$('#unidad_1').css('display','none')
 	$('#unidad_2').css('display','none')
@@ -113,21 +311,22 @@ $(document).on("click", ".button", function(e) {
     $('#valor6').css("visibility",'visible')
 	
 
+
 	switch(clase_boton){
 		case 'row third':
-			
+
 			var urlAbsolute = "assets/images/clock.png";
 			$('#icon').attr("src", urlAbsolute)
 
 			document.getElementById('set_period').style.display='block'	
 			$('.boton').css("z-index","4")
 		 	$(".row").css("z-index","4")
-			$('#valor').html(parseInt(button_pressed.parent().children('label').text(),10))
+			$('#valor').html(parseInt(button_pressed.parent().parent().children('div').children('label').text(),10))
 			
 			break;
 
 		case 'row fourth':
-
+			console.log(button_pressed.parent().parent().children('div'))
 			var hora_inicio = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
 			var hora_termino = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
 
@@ -297,16 +496,16 @@ $(document).on("click", ".boton", function(e) {
 
 
 	button_pressed = $(this)
-	
-	var elem = $("#as");
 
-	var scroll = $('#as').scrollLeft();
+	var elem = $("#contenedor");
+
+	var scroll = $('#contenedor').scrollLeft();
 
 	var anchoPantalla = elem[0].scrollWidth
 
 	
 	
-	$('#as').scrollLeft($('#'+$(this).parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
+	$('#contenedor').scrollLeft($('#'+$(this).parent().parent().parent().attr('id'))[0].offsetLeft-(anchoPantalla/100));
 	
 	var coordinates = $(this)[0].getBoundingClientRect()
 
@@ -322,7 +521,7 @@ $(document).on("click", ".boton", function(e) {
 	$("#light2").css({top: (coordinates.top - document.getElementById('light2').getBoundingClientRect().height*0.97), left: (coordinates.left-document.getElementById("blackL").getBoundingClientRect().width), position:'absolute'});
 	document.getElementById('light2').style.display='none';
 	$elem.css("z-index","1002");
-	$(this).parent().css("z-index","1002");
+	$(this).parent().parent().css("z-index","1002");
 
 	if($(this)[0].style.transform!='rotate(45deg)'){
     
@@ -360,6 +559,7 @@ $(document).on("click", ".boton", function(e) {
         }
     	});
 
+		cancelar();
     	document.getElementById('fade').style.display='none';
     	document.getElementById('light').style.display='none';
     	$elem.css("z-index","4");
@@ -487,11 +687,11 @@ $(document).on("click", "#fade", function(e) {
 
 var lastScrollLeft = 0;
 
-$('#as').scroll(function() {
+$('#contenedor').scroll(function() {
 
-	var elem = $("#as");
+	var elem = $("#contenedor");
 
-	var scroll = $('#as').scrollLeft();
+	var scroll = $('#contenedor').scrollLeft();
 
 	var anchoPantalla = elem[0].scrollWidth
 
@@ -521,9 +721,9 @@ $('#as').scroll(function() {
 
 function moveScroll2(pos) {
 
-	var elem = $("#as");
+	var elem = $("#contenedor");
 
-	var scroll = $('#as').scrollLeft();
+	var scroll = $('#contenedor').scrollLeft();
 	var anchoPantalla = elem[0].scrollWidth
 
 	switch (pos){
@@ -533,7 +733,7 @@ function moveScroll2(pos) {
 			$('#2').css("background","transparent");
 			$('#3').css("background","transparent");
 
-			$('#as').scrollLeft($('#panel1')[0].offsetLeft-(anchoPantalla/100));
+			$('#contenedor').scrollLeft($('#panel1')[0].offsetLeft-(anchoPantalla/100));
 
 			break;
 
@@ -542,7 +742,7 @@ function moveScroll2(pos) {
 			$('#2').css("background","white");
 			$('#3').css("background","transparent");
 
-			$('#as').scrollLeft($('#panel2')[0].offsetLeft-(anchoPantalla/100));
+			$('#contenedor').scrollLeft($('#panel2')[0].offsetLeft-(anchoPantalla/100));
 			break;
 
 		case 3:
@@ -551,7 +751,7 @@ function moveScroll2(pos) {
 			$('#2').css("background","transparent");
 			$('#3').css("background","white");
 
-			$('#as').scrollLeft($('#panel3')[0].offsetLeft-(anchoPantalla/100));
+			$('#contenedor').scrollLeft($('#panel3')[0].offsetLeft-(anchoPantalla/100));
 			break;
 	}
 
@@ -640,7 +840,7 @@ $(document).keydown(function(e) {
 
   	var min = $(this).parent().parent().children("div").children(".boton_input.min").html()
 
-  	var clase_boton = button_pressed.parent().attr('class')
+  	var clase_boton = button_pressed.parent().parent().attr('class')
   	
   	switch (clase_boton){
   		
@@ -732,7 +932,7 @@ $(document).keydown(function(e) {
 
   	var min = $(this).parent().parent().children("div").children(".boton_input.min").html()
 
-  	var clase_boton = button_pressed.parent().attr('class')
+  	var clase_boton = button_pressed.parent().parent().attr('class')
   	
   	switch (clase_boton){
   		
