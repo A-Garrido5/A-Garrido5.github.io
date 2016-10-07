@@ -68,8 +68,8 @@ $(document).on("click", ".ok", function(e) {
 
 		case 'row fourth':
 		
-			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('div').children('.boton_input.hora').html() + ':' + $('#valor2').children('div').children('.boton_input.min').html() + ' hrs.')
-			button_pressed.parent().find('label:eq(1)').html($('#valor4').children('div').children('.boton_input.hora').html() + ':' + $('#valor5').children('div').children('.boton_input.min').html() + ' hrs.')
+			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('div').children('.boton_input.hora').html() + ':' + $('#valor2').children('div').children('.boton_input.min').html() + ' '+ $('#valor3').children('div').children('.boton_input.ampm').html())
+			button_pressed.parent().find('label:eq(1)').html($('#valor4').children('div').children('.boton_input.hora').html() + ':' + $('#valor5').children('div').children('.boton_input.min').html() + ' '+$('#valor6').children('div').children('.boton_input.ampm').html())
 			break;
 
 		case 'row fifth':
@@ -122,9 +122,14 @@ $(document).on("click", ".button", function(e) {
 			document.getElementById('set_period').style.display='block'	
 			$('.boton').css("z-index","4")
 		 	$(".row").css("z-index","4")
+			$('#valor').html(parseInt(button_pressed.parent().children('label').text(),10))
+			
 			break;
 
 		case 'row fourth':
+
+			var hora_inicio = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
+			var hora_termino = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
 
 
 			document.getElementById('set_hor').style.display='block';
@@ -135,10 +140,34 @@ $(document).on("click", ".button", function(e) {
 			$('#set2').html("Apagado");
 			$('.boton').css("z-index","4");
 		 	$(".row").css("z-index","4");
+
+		 	var hora = hora_inicio.split(':')
+		 	var formato = hora[1].split(' ')
+
+		 	$('#valor1').children('div:eq(1)').children('label').html(hora[0])
+		 	$('#valor2').children('div:eq(1)').children('label').html(formato[0])
+		 	$('#valor3').children('div:eq(1)').children('label').html(formato[1])
+		 	
+		 	hora = hora_termino.split(':')
+		 	formato = hora[1].split(' ')
+
+		 	$('#valor4').children('div:eq(1)').children('label').html(hora[0])
+		 	$('#valor5').children('div:eq(1)').children('label').html(formato[0])
+		 	$('#valor6').children('div:eq(1)').children('label').html(formato[1])
+		 	
 			break;
 
 		case 'row fifth':
+
+			var maxTemp = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
+			var minTemp = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
 			
+			maxTemp = maxTemp.split('°')
+			minTemp = minTemp.split('°')
+
+			$('#valor2').children('div:eq(1)').children('label').html(maxTemp[0])
+			$('#valor5').children('div:eq(1)').children('label').html(minTemp[0])
+
 			var urlAbsolute = 'assets/images/temperature.png';
             $('#setting').html("Temperatura")
 
@@ -172,6 +201,17 @@ $(document).on("click", ".button", function(e) {
 			break;
 
 		case 'row sixth':
+
+			var porcentaje = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
+			var riego = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
+
+			porcentaje = porcentaje.split('%');
+			riego = riego.split(' ')
+			
+			$('#valor2').children('div:eq(1)').children('label').html(porcentaje[0])
+			$('#valor5').children('div:eq(1)').children('label').html(riego[0])
+			
+
 			var urlAbsolute = 'assets/images/riego.png';
             $('#setting').html("Riego")
 
@@ -179,6 +219,7 @@ $(document).on("click", ".button", function(e) {
 
             $('#set1').html("Porcentaje")
             $('#set2').html("Riego Mínimo")
+
 
             $('#valor1').css("visibility",'hidden')
             $('#valor3').css("visibility",'hidden')
@@ -202,6 +243,16 @@ $(document).on("click", ".button", function(e) {
 			break;
 
 		case 'row seventh':
+
+			var humedadMax = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
+			var humedadMin = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
+
+			humedadMax = humedadMax.split('%')
+			humedadMin = humedadMin.split('%')
+
+			$('#valor2').children('div:eq(1)').children('label').html(humedadMax[0])
+			$('#valor5').children('div:eq(1)').children('label').html(humedadMin[0])
+			
 
 			var urlAbsolute = 'assets/images/humedad.png';
             $('#setting').html("Humedad")
@@ -553,7 +604,7 @@ $(document).keydown(function(e) {
 
   
   	if (parseInt(hora,10)<12) {
-  		if(parseInt(hora,10) + 1<10 && parseInt(min,10) + 1>0){
+  		if(parseInt(hora,10) + 1<10 && parseInt(hora,10) + 1>0){
     		$(this).parent().parent().children("div").children('.boton_input.hora').html('0'+ (parseInt(hora, 10) + 1));
     	}
 
@@ -568,7 +619,7 @@ $(document).keydown(function(e) {
   	var hora = $(this).parent().parent().children("div").children(".boton_input.hora").html()
 
   	if (parseInt(hora,10)>1) {
-    	if(parseInt(hora,10) - 1<10 && parseInt(min,10) - 1>0){
+    	if(parseInt(hora,10) - 1<10 && parseInt(hora,10) - 1>0){
     		$(this).parent().parent().children("div").children('.boton_input.hora').html('0'+ (parseInt(hora, 10) - 1));
     	}
 
@@ -619,6 +670,59 @@ $(document).keydown(function(e) {
   			break;
 
 
+  		case 'row sixth':
+  			var variable = parseInt($(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html());
+  			
+  			
+
+  			if(e.target.id == 'sumar'){
+  				if(variable + 1 <=100){
+		  			if (variable + 1 < 10){
+		  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html('0'+ (variable+ 1))
+		  			}
+
+		  			else{
+		  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html(variable+ 1)
+		  			}
+	  			}
+
+	  			break;
+  			}
+
+  			else if(e.target.id == 'sumar2'){
+
+  				if (variable + 1 < 10){
+	  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html('0'+ (variable+ 1))
+	  			}
+
+	  			else{
+	  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html(variable+ 1)
+	  			}
+
+	  			break;
+
+  			}
+
+  		case 'row seventh':
+
+  			var variable = parseInt($(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html());
+
+  			if(variable + 1 <=100){
+	  			if (variable + 1 < 10){
+	  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html('0'+ (variable+ 1))
+	  			}
+
+	  			else{
+	  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html(variable+ 1)
+	  			}
+  			}
+
+	  		break;
+
+
+
+
+
   	}
   
   	
@@ -659,13 +763,33 @@ $(document).keydown(function(e) {
 
 
   		case 'row sixth':
+  			var porcentaje = parseInt($(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html())//parseInt(button_pressed.parent().children('div').children('div.row:eq(0)').children('label').html(),10)
+  			var riego = parseInt(button_pressed.parent().children('div').children('div.row:eq(1)').children('label').html(),10)
+  			//console.log(button_pressed.parent().children('div').children('div.row:eq(0)').children('label').html())
+  			//console.log(button_pressed.parent().children('div').children('div.row:eq(1)').children('label').html())
+
+  			console.log(porcentaje)
+  			if(porcentaje - 1 >= 0){
+	  			if (porcentaje - 1 < 10){
+	  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html('0'+ (porcentaje- 1))
+	  			}
+
+	  			else{
+	  				$(this).parent().parent().children("div:eq(1)").children('.boton_input.min').html(porcentaje- 1)
+	  			}
+  			}
+
+
+
+  			/*
+
   			if(parseInt(min,10) - 1<10 && parseInt(min,10) - 1>0){
 		    	$(this).parent().parent().children("div").children('.boton_input.min').html('0'+ (parseInt(min, 10) - 1));
 			}
 
 			else{
 	    		$(this).parent().parent().children("div").children('.boton_input.min').html(parseInt(min, 10) - 1);	
-	    	}
+	    	}*/
   			break;
 
 
