@@ -2,19 +2,20 @@ var button_pressed;
 
 function crearPanelVacio(){
 	var htmlDinamico="";	
-	htmlDinamico+='<a class= style="height:100%;width:49%;margin-right:1%;vertical-align:top;">';
+	htmlDinamico+=' <a class="panel2" style="height:100%;width:49%;margin-right:0.5%;vertical-align:top;background:transparent;">';
 	htmlDinamico+='</a>';
 
 	
 	$( "#contenedor" ).append( htmlDinamico );
 
 }
+
 function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTemp,minTemp,riegoPor,riegoMin,humedadMax,humedadMin){
 
 	var htmlDinamico="";
 
 	htmlDinamico+='<a id="p'+ numero+'" class="'+clasePanel+'" style="height:100%;width:49%;margin-right:1%;vertical-align:top;">';
-	htmlDinamico+='	<div class="row first" style="height:10%;white-space:normal;position:relative;">';
+	htmlDinamico+='	<div class="row first" style="height:10%;white-space:normal;position:relative;max-width:100%;">';
 	htmlDinamico+='		<div class="col-md-10 col-sm-10 col-xs-10" style="height:100%;padding:0">';
 	
 	if(nombre=='germinacion')
@@ -36,7 +37,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='	</div>';
 	
-	htmlDinamico+='	<div class="row second" style="height:10%;position:relative;margin-top:5%;">';
+	htmlDinamico+='	<div class="row second" style="height:10%;position:relative;margin-top:5%;max-width:100%;">';
 	
 	if(nombre=='germinacion')
 		htmlDinamico+='	<label id="p'+numero+'1etapa" style="height: 100%; font-size: 3.5vh;">Germinación</label>';
@@ -49,7 +50,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='	</div>';
 
-	htmlDinamico+='	<div class="row third" style="height:15%;white-space: normal; position:relative;">';
+	htmlDinamico+='	<div class="row third" style="height:15%;white-space: normal; position:relative;max-width:100%;">';
 	
 	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
 	htmlDinamico+='			<img id="p'+numero+'ico2" src="assets/images/reloj.png"  style="height:50%; ">';
@@ -67,7 +68,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='	</div>';
 
-	htmlDinamico+='	<div class="row fourth" style="height:15%;white-space: normal; position:relative;">'
+	htmlDinamico+='	<div class="row fourth" style="height:15%;white-space: normal; position:relative;max-width:100%;">'
 
 	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
 	htmlDinamico+='			<img id="p'+numero+'ico3" src="assets/images/ampolleta.png"  style="height:50%; ">';
@@ -93,7 +94,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='	</div>';
 
-	htmlDinamico+='	<div class="row fifth" style="height:15%;white-space: normal; position:relative;">'
+	htmlDinamico+='	<div class="row fifth" style="height:15%;white-space: normal; position:relative;max-width:100%;">'
 
 	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
 	htmlDinamico+='			<img id="p'+numero+'ico4" src="assets/images/temperature.png"  style="height:50%; ">';
@@ -119,7 +120,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='	</div>';
 
-	htmlDinamico+='	<div class="row sixth" style="height:15%;white-space: normal; position:relative;">'
+	htmlDinamico+='	<div class="row sixth" style="height:15%;white-space: normal; position:relative;max-width:100%;">'
 
 	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
 	htmlDinamico+='			<img id="p'+numero+'ico5" src="assets/images/riego.png"  style="height:50%; ">';
@@ -145,7 +146,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='	</div>';
 
-	htmlDinamico+='	<div class="row seventh" style="height:15%;white-space: normal; position:relative;">'
+	htmlDinamico+='	<div class="row seventh" style="height:15%;white-space: normal; position:relative;max-width:100%;">'
 
 	htmlDinamico+='		<div class="col-md-2 col-sm-2 col-xs-2" style="height:100%;padding:0">';
 	htmlDinamico+='			<img id="p'+numero+'ico6" src="assets/images/humedad.png"  style="height:50%; ">';
@@ -174,12 +175,21 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 	htmlDinamico+='</a>';
 
+
+
 	
 	$( "#contenedor" ).append( htmlDinamico );
 	
 
 }
-var total = 5
+
+function crearIndicador(id){
+	var htmlDinamico="";
+	htmlDinamico+='<li id="'+id+'" onclick="moveScroll2('+id+')" data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>'
+	$( "#indicators" ).append( htmlDinamico );
+}
+
+var total = 4
 
 for(var i=0; i<total;i++){
 	if(i%3==0)
@@ -189,11 +199,17 @@ for(var i=0; i<total;i++){
 	else
 		crearPanel('3','panel3','vegetativo',10,'10:00 AM','04:00 PM',18,12,30,80,20,43)
 
+	crearIndicador(i+1)
+
 }
 
-if (tota%2!=0) {
-	crearPanelVacio()
-}
+// 4 --> 850
+// 6 --> 1260 
+
+
+
+crearPanelVacio()
+
 
 $(document).on("click", ".edit", function(e) {
 	
@@ -686,8 +702,9 @@ $(document).on("click", "#fade", function(e) {
 
 
 var lastScrollLeft = 0;
+$('#1').css("background","white");
 
-$('#contenedor').scroll(function() {
+$('#contenedor').scroll(function(e) {
 
 	var elem = $("#contenedor");
 
@@ -695,13 +712,40 @@ $('#contenedor').scroll(function() {
 
 	var anchoPantalla = elem[0].scrollWidth
 
-	if(scroll < anchoPantalla/4){
+	var pixeles=(anchoPantalla/(total+1));
+
+
+	$('.active').css("background","transparent");
+
+	for (var i=0;i<total+1;i++){
+		
+		var panel=i+1;
+
+		if (scroll>= (pixeles*panel - (pixeles)) && scroll <= pixeles*panel) {
+			$('#'+panel).css("background","white");
+		}
+	}
+	/*
+	for (var i=0;i<total;i++){
+		
+		var panel=i+1;
+		
+		if (scroll >= (anchoPantalla/total)*(panel) && scroll <= (anchoPantalla/total)*1.9*(panel)) {
+			$('#'+panel).css("background","white");	
+		}
+	}
+
+	
+	
+	1047 -> 4
+
+	if(scroll < anchoPantalla/total){
 		$('#1').css("background","white");
 		$('#2').css("background","transparent");
 		$('#3').css("background","transparent");
 	}
 
-    else if (scroll >=anchoPantalla/4 && scroll <= (anchoPantalla/4)*1.9 ){
+    else if (scroll >=anchoPantalla/total && scroll <= (anchoPantalla/total)*1.9 ){
 
         $('#1').css("background","transparent");
 		$('#2').css("background","white");
@@ -714,7 +758,7 @@ $('#contenedor').scroll(function() {
 		$('#2').css("background","transparent");
 		$('#3').css("background","white");
 
-	}    
+	} */   
 });
 
 
@@ -724,7 +768,14 @@ function moveScroll2(pos) {
 	var elem = $("#contenedor");
 
 	var scroll = $('#contenedor').scrollLeft();
-	var anchoPantalla = elem[0].scrollWidth
+	var anchoPantalla = elem[0].scrollWidth;
+
+	
+
+	//console.log(total)
+
+	//
+	/*
 
 	switch (pos){
 		case 1:
@@ -757,7 +808,7 @@ function moveScroll2(pos) {
 
 
 
-	
+	*/
 	
 
 }
@@ -928,7 +979,7 @@ $(document).keydown(function(e) {
   	
   });
 
-  $('.menos_min').on('click', function() {
+	$('.menos_min').on('click', function() {
 
   	var min = $(this).parent().parent().children("div").children(".boton_input.min").html()
 
