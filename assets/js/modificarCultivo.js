@@ -346,7 +346,7 @@ $(document).on("click", ".button", function(e) {
 			break;
 
 		case 'row fourth':
-			//console.log(button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html())
+			
 			var hora_inicio = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html()
 			var hora_termino = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html()
 
@@ -731,14 +731,21 @@ $('#contenedor').scroll(function(e) {
 	$('.active').css("background","transparent");
 
 	for (var i=0;i<total;i++){
-		
-		var panel=i+1;
+    
+	    var panel=i+1;
+	    width = $('#p'+panel).width();
 
-		//if ( scroll<= $('#p'+panel)[0].offsetLeft +$('#p'+panel).width()*3/2 -11 && scroll> $('#p'+panel)[0].offsetLeft -$('#p'+panel).width()/2 -11) {
-		if(scroll >= $('#p'+panel)[0].offsetLeft - variante && scroll < $('#p'+panel)[0].offsetLeft + ($('#p'+panel).width()-variante)*3/2 )
-			$('#'+panel).css("background","white");
-		//}
+	    //if ( scroll<= $('#p'+panel)[0].offsetLeft +$('#p'+panel).width()*3/2 -11 && scroll> $('#p'+panel)[0].offsetLeft -$('#p'+panel).width()/2 -11) {
+	    //if(scroll > $('#p'+panel)[0].offsetLeft - variante && scroll < $('#p'+panel)[0].offsetLeft + variante)//($('#p'+panel).width()-variante)*3/2 )
+	    if(scroll > $('#p'+panel)[0].offsetLeft - width && scroll < $('#p'+panel)[0].offsetLeft + width)//($('#p'+panel).width()-variante)*3/2 )
+	    {  
+	      $('.active').css("background","transparent");
+	      $('#'+panel).css("background","white");
+	      //return;
+	    }
 	}
+
+	
 });
 
 
