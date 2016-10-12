@@ -527,7 +527,7 @@ button.list-group-item{
  	position:absolute;
  	
  	left:50%;
- 	z-index:15;
+ 	z-index:4;
  	width:60%;
  	padding-left:0;
  	margin-left:-30%;
@@ -556,10 +556,17 @@ button.list-group-item{
  	border:1px solid #fff;border-radius:10px}
 
  .carousel-indicators .active{
+ 	background: transparent;
  	width:12px;
  	height:12px;
  	margin:0;
+
  	
+ }
+
+
+ .blanco{
+ 	background: white;
  }
 
  .carousel-caption{position:absolute;right:15%;bottom:20px;left:15%;z-index:10;padding-top:20px;padding-bottom:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.6)}.carousel-caption .btn{text-shadow:none}

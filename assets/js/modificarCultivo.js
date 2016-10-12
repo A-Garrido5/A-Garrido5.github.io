@@ -185,11 +185,11 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 
 function crearIndicador(id){
 	var htmlDinamico="";
-	htmlDinamico+='<li id="'+id+'" onclick="moveScroll2('+id+')" data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>'
+	htmlDinamico+='<li id="'+id+'" data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>'
 	$( "#indicators" ).append( htmlDinamico );
 }
 
-var total = 4
+var total = 3
 
 for(var i=0; i<total;i++){
 	if(i%3==0)
@@ -714,104 +714,51 @@ $('#contenedor').scroll(function(e) {
 
 	var pixeles=(anchoPantalla/(total+1));
 
+	var variante = ($('#p1')[0].offsetLeft)
+
+	console.log(variante)
+
+	console.log(scroll)
+	console.log($('#p1').width())
+	console.log(($('#p1')[0].offsetLeft - variante)*3/2 )
+
 
 	$('.active').css("background","transparent");
 
-	for (var i=0;i<total+1;i++){
-		
-		var panel=i+1;
-
-		if (scroll>= (pixeles*panel - (pixeles)) && scroll <= pixeles*panel) {
-			$('#'+panel).css("background","white");
-		}
-	}
-	/*
 	for (var i=0;i<total;i++){
 		
 		var panel=i+1;
-		
-		if (scroll >= (anchoPantalla/total)*(panel) && scroll <= (anchoPantalla/total)*1.9*(panel)) {
-			$('#'+panel).css("background","white");	
-		}
+
+		//if ( scroll<= $('#p'+panel)[0].offsetLeft +$('#p'+panel).width()*3/2 -11 && scroll> $('#p'+panel)[0].offsetLeft -$('#p'+panel).width()/2 -11) {
+		if(scroll >= $('#p'+panel)[0].offsetLeft - variante && scroll < $('#p'+panel)[0].offsetLeft + ($('#p'+panel).width()-variante)*3/2 )
+			$('#'+panel).css("background","white");
+		//}
 	}
-
-	
-	
-	1047 -> 4
-
-	if(scroll < anchoPantalla/total){
-		$('#1').css("background","white");
-		$('#2').css("background","transparent");
-		$('#3').css("background","transparent");
-	}
-
-    else if (scroll >=anchoPantalla/total && scroll <= (anchoPantalla/total)*1.9 ){
-
-        $('#1').css("background","transparent");
-		$('#2').css("background","white");
-		$('#3').css("background","transparent");
-    }
-
-	else{
-
-		$('#1').css("background","transparent");
-		$('#2').css("background","transparent");
-		$('#3').css("background","white");
-
-	} */   
 });
 
 
+$(document).on("click", ".active", function(e) {
 
-function moveScroll2(pos) {
 
+	var pos = $(this).context.id;
 	var elem = $("#contenedor");
 
-	var scroll = $('#contenedor').scrollLeft();
+	
 	var anchoPantalla = elem[0].scrollWidth;
 
 	
 
-	//console.log(total)
-
-	//
-	/*
-
-	switch (pos){
-		case 1:
-
-			$('#1').css("background","white");
-			$('#2').css("background","transparent");
-			$('#3').css("background","transparent");
-
-			$('#contenedor').scrollLeft($('#panel1')[0].offsetLeft-(anchoPantalla/100));
-
-			break;
-
-		case 2:
-			$('#1').css("background","transparent");
-			$('#2').css("background","white");
-			$('#3').css("background","transparent");
-
-			$('#contenedor').scrollLeft($('#panel2')[0].offsetLeft-(anchoPantalla/100));
-			break;
-
-		case 3:
-
-			$('#1').css("background","transparent");
-			$('#2').css("background","transparent");
-			$('#3').css("background","white");
-
-			$('#contenedor').scrollLeft($('#panel3')[0].offsetLeft-(anchoPantalla/100));
-			break;
-	}
-
-
-
-	*/
+	console.log($('#p'+pos)[0].offsetLeft-(anchoPantalla/100))
 	
 
-}
+	$('#contenedor').scrollLeft($('#p'+pos)[0].offsetLeft-(anchoPantalla/100)-2);
+	
+	
+	
+
+});
+
+
 
     
 $(document).keydown(function(e) {
