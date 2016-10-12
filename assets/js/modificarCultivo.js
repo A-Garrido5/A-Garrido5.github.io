@@ -103,7 +103,7 @@ function crearPanel(numero,clasePanel,nombre,dias,hora_inicio,hora_termino,maxTe
 	htmlDinamico+='		<div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;padding:0;margin:0;">';
 	
 	htmlDinamico+='			<div class="row" style="height:30%;">';
-	htmlDinamico+='				<label id="p'+numero+'t1" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+maxTemp+'° C Máx</label>';
+	htmlDinamico+='				<label id="p'+numero+'t1" style="height: 100%; font-size: 2vh; vertical-align:top; ">'+maxTemp+'° C Máx.</label>';
 	htmlDinamico+='			</div>';
 
 	htmlDinamico+='			<div class="row" style="height:50%;">';
@@ -271,6 +271,8 @@ $(document).on("click", ".ok", function(e) {
 
 	var clase_boton = button_pressed.parent().parent().attr('class')
 
+	console.log()
+
 	switch(clase_boton){
 
 		case 'row third':
@@ -279,25 +281,27 @@ $(document).on("click", ".ok", function(e) {
 
 		case 'row fourth':
 
-
-		
-			button_pressed.parent().find('label:eq(0)').html($('#valor1').children('div').children('.boton_input.hora').html() + ':' + $('#valor2').children('div').children('.boton_input.min').html() + ' '+ $('#valor3').children('div').children('.boton_input.ampm').html())
-			button_pressed.parent().find('label:eq(1)').html($('#valor4').children('div').children('.boton_input.hora').html() + ':' + $('#valor5').children('div').children('.boton_input.min').html() + ' '+$('#valor6').children('div').children('.boton_input.ampm').html())
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html($('#valor1').children('div').children('.boton_input.hora').html() + ':' + $('#valor2').children('div').children('.boton_input.min').html() + ' '+ $('#valor3').children('div').children('.boton_input.ampm').html())
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html($('#valor4').children('div').children('.boton_input.hora').html() + ':' + $('#valor5').children('div').children('.boton_input.min').html() + ' '+$('#valor6').children('div').children('.boton_input.ampm').html())
+	
 			break;
 
 		case 'row fifth':
-			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '° C')
-			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + '° C')
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html($('#valor2').children('div').children('.boton_input.min').html() + '° C Máx.');
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html($('#valor5').children('div').children('.boton_input.min').html() + '° C Min.');
+			
 			break;
 		
 		case 'row sixth':
-			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '% Min.')
-			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + ' ml.')
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html($('#valor2').children('div').children('.boton_input.min').html() + '% Min.');
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html($('#valor5').children('div').children('.boton_input.min').html() + ' ml.');
+			
 			break;
 
 		case 'row seventh':
-			button_pressed.parent().find('label:eq(0)').html($('#valor2').children('div').children('.boton_input.min').html() + '% Máx.')
-			button_pressed.parent().find('label:eq(1)').html($('#valor5').children('div').children('.boton_input.min').html() + '% Min.')
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html($('#valor2').children('div').children('.boton_input.min').html() + '% Máx.');
+			button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html($('#valor5').children('div').children('.boton_input.min').html() + '% Min.');
+			
 			break;
 	}	
 
@@ -342,10 +346,11 @@ $(document).on("click", ".button", function(e) {
 			break;
 
 		case 'row fourth':
-			console.log(button_pressed.parent().parent().children('div'))
-			var hora_inicio = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
-			var hora_termino = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
+			//console.log(button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html())
+			var hora_inicio = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html()
+			var hora_termino = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html()
 
+			
 
 			document.getElementById('set_hor').style.display='block';
 
@@ -374,8 +379,8 @@ $(document).on("click", ".button", function(e) {
 
 		case 'row fifth':
 
-			var maxTemp = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
-			var minTemp = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
+			var maxTemp = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html()
+			var minTemp = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html()
 			
 			maxTemp = maxTemp.split('°')
 			minTemp = minTemp.split('°')
@@ -417,8 +422,8 @@ $(document).on("click", ".button", function(e) {
 
 		case 'row sixth':
 
-			var porcentaje = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
-			var riego = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
+			var porcentaje = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html()
+			var riego = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html()
 
 			porcentaje = porcentaje.split('%');
 			riego = riego.split(' ')
@@ -459,8 +464,8 @@ $(document).on("click", ".button", function(e) {
 
 		case 'row seventh':
 
-			var humedadMax = button_pressed.parent().children('div').children('div:eq(0)').children('label').html()
-			var humedadMin = button_pressed.parent().children('div').children('div:eq(1)').children('label').html()
+			var humedadMax = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(0)').children('label').html()
+			var humedadMin = button_pressed.parent().parent().children('div:eq(1)').children('div:eq(1)').children('label').html()
 
 			humedadMax = humedadMax.split('%')
 			humedadMin = humedadMin.split('%')
