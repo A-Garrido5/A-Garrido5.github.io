@@ -203,6 +203,13 @@ for(var i=0; i<total;i++){
 
 }
 
+crearPanel('4','panel1','germinacion',30,'08:00 AM','02:00 PM',28,22,10,100,10,50)
+crearIndicador(4)
+crearPanel('5','panel1','germinacion',30,'08:00 AM','02:00 PM',28,22,10,100,10,50)
+crearIndicador(5)
+crearPanel('6','panel1','germinacion',30,'08:00 AM','02:00 PM',28,22,10,100,10,50)
+crearIndicador(6)
+
 // 4 --> 850
 // 6 --> 1260 
 
@@ -711,6 +718,8 @@ $('#1').css("background","white");
 
 $('#contenedor').scroll(function(e) {
 
+	total = 8;
+
 	var elem = $("#contenedor");
 
 	var scroll = $('#contenedor').scrollLeft();
@@ -721,11 +730,6 @@ $('#contenedor').scroll(function(e) {
 
 	var variante = ($('#p1')[0].offsetLeft)
 
-	console.log(variante)
-
-	console.log(scroll)
-	console.log($('#p1').width())
-	console.log(($('#p1')[0].offsetLeft - variante)*3/2 )
 
 
 	$('.active').css("background","transparent");
@@ -735,13 +739,11 @@ $('#contenedor').scroll(function(e) {
 	    var panel=i+1;
 	    width = $('#p'+panel).width();
 
-	    //if ( scroll<= $('#p'+panel)[0].offsetLeft +$('#p'+panel).width()*3/2 -11 && scroll> $('#p'+panel)[0].offsetLeft -$('#p'+panel).width()/2 -11) {
-	    //if(scroll > $('#p'+panel)[0].offsetLeft - variante && scroll < $('#p'+panel)[0].offsetLeft + variante)//($('#p'+panel).width()-variante)*3/2 )
 	    if(scroll > $('#p'+panel)[0].offsetLeft - width && scroll < $('#p'+panel)[0].offsetLeft + width)//($('#p'+panel).width()-variante)*3/2 )
 	    {  
 	      $('.active').css("background","transparent");
 	      $('#'+panel).css("background","white");
-	      //return;
+
 	    }
 	}
 
@@ -763,7 +765,7 @@ $(document).on("click", ".active", function(e) {
 	console.log($('#p'+pos)[0].offsetLeft-(anchoPantalla/100))
 	
 
-	$('#contenedor').scrollLeft($('#p'+pos)[0].offsetLeft-(anchoPantalla/100)-2);
+	$('#contenedor').scrollLeft($('#p'+pos)[0].offsetLeft-(anchoPantalla/100));
 	
 	
 	
