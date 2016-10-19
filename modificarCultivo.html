@@ -16,26 +16,20 @@
     <body>
       
       <div id="con" class="container-fluid" style="width:100%;padding:0px;">
+
+        <div id="fade" class="overlay back"></div>
          
-          <div id="blackL" class="hidden-xs hidden-sm col-md-4" style="background:#000;height:100%;">
-              
-              <div class="caption" style="text-align:center;">
-                <h3></h3>
-
-              </div>
-              
-              
-          </div>
+          <div id="blackL" class="hidden-xs hidden-sm col-md-4 fondo"></div>
           
-          <div class="col-md-4 col-xs-12 col-sm-12" style="background:#212121; min-height:100%;height:100%;overflow-x:hidden;">
+          <div class="col-md-4 col-xs-12 col-sm-12 columna2">
           
           
 
-          	<div class="row" style="border-bottom: 1px solid white;"onclick="cerrarBarras()">
+          	<div class="row encabezado">
 
               
               <div class="caption" style="text-align:center;">
-                <h2 style="color:#FFF">Modificar Cultivo</h2>
+                <h2 class="titulo">Modificar Cultivo</h2>
 
   		        </div>
           
@@ -43,7 +37,7 @@
             </div>
 
             <div class="row" style="border-bottom: 1px solid white; height:80%;" onclick="cerrarBarras()">    
-              <div id="fade" class="overlay"></div>
+              
 
               <div id="light" style="background:transparent;padding-top:0" class="modal">
                 <div class="row" style="color:white;vertical-align:middle;height:15%"> 
@@ -496,84 +490,76 @@
             </div>
 
             
-           <div class="row" style="background:#212121;min-height:10%;max-height:15%">
-
-
+          <div class="row foot">
+          
             
-              <div class="col-sm-1 hidden-md hidden-xs hidden-lg"></div>
 
-              <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
-                
-                  <button type="button" class="btn btn-default btn-lg" onclick="abrirNotificaciones()" style="width:100%;">
-                    <img  src="assets/images/notification.png" style="vertical-align:middle;height:5vh""> 
-                    <!--<span class="glyphicon $('#as').scrollLeftglyphicon-comment" style="color:#fff;text-align:center; vertical-align:middle"></span>-->
-
-                    
-                  </button>
-
-              </div> 
-
-              <div class="col-sm-2 hidden-md hidden-xs hidden-lg"></div>
-
-              <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
-                
-
-                <button type="button" class="btn btn-default btn-lg" onclick="goHome()" style="width:100%;">
-                  <img  src="assets/images/home.png" style="vertical-align:middle;height:5vh"">
-                    
+            <div class="col-md-4 col-xs-4 col-sm-4 col-foot">
+              
+                <button type="button" class="btn btn-default btn-lg" onclick="abrirNotificaciones()" style="width:100%;">
+                  <img  src="assets/images/notification.png" style="vertical-align:middle;height:5vh""> 
+                      
                 </button>
-                
-                
-              </div>        
+
+            </div> 
+
+             <div class="col-md-4 col-xs-4 col-sm-4 col-foot">
+              
+
+              <button type="button" class="btn btn-default btn-lg" onclick="goHome()" style="width:100%;">
+                <img  src="assets/images/home.png" style="vertical-align:middle;height:5vh"">
+                  
+              </button>
+              
+              
+            </div>        
+
+
+            <div class="col-md-4 col-xs-4 col-sm-4 col-foot">
+              
 
               
-              <div class="col-sm-2 hidden-md hidden-xs hidden-lg"></div>
-
-              <div class="col-md-4 col-xs-4 col-sm-2" style="text-align:center;height:100%">
-                
-
-                
-                <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()" style="width:100%">
-                    <img  src="assets/images/help.png" style="vertical-align:middle;height:5vh"">
-                </button>
-                
-                
-              </div>    
-
-
-              <div id="mySidenav" class="sidenav">
-
-                <div class="row" style="border-bottom: 1px solid white; text-align:center;">
-                  <img  src="assets/images/help.png" style="vertical-align:middle;height:3em"">
-                  <label>Ayuda</label>
-                </div>
-
-                <ul style="list-style-type:circle">
-
-                  <li>Aquí se presenta la información de ayuda.</li>
-
-                  <li>La información que se presente va a depender del lugar, de la interfaz desde dónde se accedió al menú de 
-                      ayuda, por ejemplo si nos encontramos en "Inicio" se desplegará la información sobre lo que aparece en pantalla y sugerencias de acción.</li>
-                  
-                  <li>Los tópicos de ayuda se Isitarán verticalmente en esta barra lateral con la opción de deslizarse por 
-                      el contenido.</li>
-                </ul> 
-              </div>
-
-              <div id="mySidenav2" class="sidenav2">
-
-                <div class="row" style="border-bottom: 1px solid white; text-align:center;">
-                  
-                  <label>Notificaciones</label>
-                  <img  src="assets/images/notification.png" style="vertical-align:middle;height:3em"> 
-                </div>
-
-                <ul style="list-style-type:circle">
-
-                  <li>Aquí van las notificaciones</li>
-                </ul> 
-              </div>       
+              <button type="button" class="btn btn-default btn-md btn-lg" onclick="abrirAyuda()" style="width:100%">
+                  <img  src="assets/images/help.png" style="vertical-align:middle;height:5vh"">
+              </button>
               
+              
+            </div>    
+
+
+            <div id="mySidenav" class="sidenav">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    <img  src="assets/images/help.png" style="vertical-align:middle;height:3em"">
+                    <label>Ayuda</label>
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí se presenta la información de ayuda.</li>
+
+                    <li>La información que se presente va a depender del lugar, de la interfaz desde dónde se accedió al menú de 
+                        ayuda, por ejemplo si nos encontramos en "Inicio" se desplegará la información sobre lo que aparece en pantalla y sugerencias de acción.</li>
+                    
+                    <li>Los tópicos de ayuda se Isitarán verticalmente en esta barra lateral con la opción de deslizarse por 
+                        el contenido.</li>
+                  </ul> 
+                </div>
+
+                <div id="mySidenav2" class="sidenav2">
+
+                  <div class="row" style="border-bottom: 1px solid white; text-align:center;">
+                    
+                    <label>Notificaciones</label>
+                    <img  src="assets/images/notification.png" style="vertical-align:middle;height:3em"> 
+                  </div>
+
+                  <ul style="list-style-type:circle">
+
+                    <li>Aquí van las notificaciones</li>
+                  </ul> 
+                </div>       
+            
         
           </div>
 
