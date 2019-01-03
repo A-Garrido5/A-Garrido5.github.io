@@ -235,13 +235,8 @@ textarea{
  }
 
  .container-fluid{
- 	height:100%;
  	padding:0px;
  	height: 100%;
- 	padding-right:15px;
- 	padding-left:15px;
- 	margin-right:auto;
- 	margin-left:auto
  }
 
  .row{
@@ -299,6 +294,16 @@ textarea{
  	border-radius:4px;
  }
 
+ .headSideBarHelp{
+ 	border-bottom: 1px solid white; 
+ 	text-align:center;
+ 	height: 10%;
+ }
+
+.iconHelpSideBar{
+	vertical-align:middle;
+	height:3em
+}
 
  .btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus{
  	outline:5px auto -webkit-focus-ring-color;
